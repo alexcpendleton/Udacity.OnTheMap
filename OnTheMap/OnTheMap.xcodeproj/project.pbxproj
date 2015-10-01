@@ -15,6 +15,10 @@
 		4976A87E1BBCB2210053C745 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976A87C1BBCB2210053C745 /* LaunchScreen.storyboard */; };
 		4976A8891BBCB2210053C745 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8881BBCB2210053C745 /* OnTheMapTests.swift */; };
 		4976A8941BBCB2210053C745 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8931BBCB2210053C745 /* OnTheMapUITests.swift */; };
+		4976A8A21BBCBABB0053C745 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A11BBCBABB0053C745 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A41BBCBDFB0053C745 /* LoginServiceable.swift */; settings = {ASSET_TAGS = (); }; };
+		4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A61BBCC1DA0053C745 /* LoginSession.swift */; settings = {ASSET_TAGS = (); }; };
+		4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		4976A88F1BBCB2210053C745 /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4976A8931BBCB2210053C745 /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		4976A8951BBCB2210053C745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4976A8A11BBCBABB0053C745 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4976A8A41BBCBDFB0053C745 /* LoginServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServiceable.swift; sourceTree = "<group>"; };
+		4976A8A61BBCC1DA0053C745 /* LoginSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
+		4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSessionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 		4976A86F1BBCB2210053C745 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				4976A8A31BBCBB610053C745 /* Common */,
 				4976A8701BBCB2210053C745 /* AppDelegate.swift */,
 				4976A8721BBCB2210053C745 /* ViewController.swift */,
 				4976A8741BBCB2210053C745 /* Main.storyboard */,
@@ -106,6 +115,7 @@
 				4976A87C1BBCB2210053C745 /* LaunchScreen.storyboard */,
 				4976A87F1BBCB2210053C745 /* Info.plist */,
 				4976A8771BBCB2210053C745 /* OnTheMap.xcdatamodeld */,
+				4976A8A11BBCBABB0053C745 /* LoginViewController.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -126,6 +136,24 @@
 				4976A8951BBCB2210053C745 /* Info.plist */,
 			);
 			path = OnTheMapUITests;
+			sourceTree = "<group>";
+		};
+		4976A8A31BBCBB610053C745 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4976A8A81BBCC3B10053C745 /* FakeServices */,
+				4976A8A41BBCBDFB0053C745 /* LoginServiceable.swift */,
+				4976A8A61BBCC1DA0053C745 /* LoginSession.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		4976A8A81BBCC3B10053C745 /* FakeServices */ = {
+			isa = PBXGroup;
+			children = (
+				4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */,
+			);
+			name = FakeServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4976A8A21BBCBABB0053C745 /* LoginViewController.swift in Sources */,
+				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,
 				4976A8731BBCB2210053C745 /* ViewController.swift in Sources */,
+				4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */,
+				4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */,
 				4976A8711BBCB2210053C745 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
