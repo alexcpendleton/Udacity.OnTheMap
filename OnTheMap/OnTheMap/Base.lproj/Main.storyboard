@@ -44,6 +44,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginOnTouchUpInside" destination="BYZ-38-t0r" eventType="touchUpInside" id="vim-Ff-OZS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -72,6 +75,11 @@
                             <constraint firstItem="xeh-XK-zTN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XAR-gt-aCB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="GwS-2h-155" id="j4c-Ke-SDt"/>
+                        <outlet property="usernameField" destination="lOt-Xp-22Z" id="ENo-d6-hZ9"/>
+                        <segue destination="fXo-e1-XYO" kind="show" identifier="AfterLoginSegue" id="Ikl-vf-k2H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,7 +106,7 @@
         <!--Map View Controller-->
         <scene sceneID="MLl-cc-yZ5">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="XJc-3w-O2W" userLabel="Map View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="XJc-3w-O2W" userLabel="Map View Controller" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fNn-cS-7Dv"/>
                         <viewControllerLayoutGuide type="bottom" id="vA7-bn-Uhh"/>
@@ -106,18 +114,32 @@
                     <view key="view" contentMode="scaleToFill" id="05E-Cw-Yg8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gPm-kw-pDe">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gPm-kw-pDe" secondAttribute="trailing" id="beV-dh-CSp"/>
+                            <constraint firstItem="gPm-kw-pDe" firstAttribute="leading" secondItem="05E-Cw-Yg8" secondAttribute="leading" id="jCw-st-ZZI"/>
+                            <constraint firstItem="gPm-kw-pDe" firstAttribute="top" secondItem="fNn-cS-7Dv" secondAttribute="bottom" id="lpe-ZT-Pfs"/>
+                            <constraint firstItem="gPm-kw-pDe" firstAttribute="bottom" secondItem="vA7-bn-Uhh" secondAttribute="top" id="rJy-oY-jhY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4gC-DQ-mvF"/>
+                    <connections>
+                        <outlet property="map" destination="gPm-kw-pDe" id="cgQ-yM-3B9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9g-dw-iHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2683" y="136"/>
         </scene>
-        <!--View Controller-->
+        <!--Location List View Controller-->
         <scene sceneID="i1L-NW-RnF">
             <objects>
-                <viewController id="6lJ-vR-aSv" sceneMemberID="viewController">
+                <viewController id="6lJ-vR-aSv" userLabel="Location List View Controller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8wi-to-kfL"/>
                         <viewControllerLayoutGuide type="bottom" id="03E-z2-xa7"/>

@@ -9,11 +9,15 @@
 import Foundation
 
 public class FakeSessionService : LoginServiceable {
-    public func attemptToLogin(credentials: (username: String, password: String)) -> (successful: Bool, session: LoginSession) {
-        let session = LoginSession()
-        session.account = (true, "90210")
-        session.session = ("session123", NSDate(timeIntervalSinceNow: 60000))
+    public var shouldImitateSuccess = true
+    public func attemptToLogin(credentials: (username: String, password: String)) -> LoginResults {
+        if shouldImitateSuccess {
+            let session = LoginSession()
+            session.account = (true, "90210")
+            session.session = ("session123", NSDate(timeIntervalSinceNow: 60000))
         
-        return (successful: true, session: session)
+            return LoginResults(success: true, sessionInfo: session)
+        }
+        return LoginResults(success: false, sessionInfo: nil)
     }
 }

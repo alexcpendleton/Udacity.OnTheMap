@@ -9,5 +9,14 @@
 import Foundation
 
 public protocol LoginServiceable {
-    func attemptToLogin(credentials:(username:String, password:String)) -> (successful:Bool, session:LoginSession)
+    func attemptToLogin(credentials:(username:String, password:String)) -> LoginResults
+}
+
+public class LoginResults {
+    init(success:Bool, sessionInfo:LoginSession?) {
+        self.successful = success
+        self.session = sessionInfo
+    }
+    var successful:Bool
+    var session:LoginSession?
 }

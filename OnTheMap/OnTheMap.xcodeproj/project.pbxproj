@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4907B8321BC34C8000456DAB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8311BC34C8000456DAB /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4907B8341BC34DC900456DAB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4907B8331BC34DC900456DAB /* MapKit.framework */; };
+		4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8351BC34E3900456DAB /* StudentLocationsServiceable.swift */; settings = {ASSET_TAGS = (); }; };
+		4907B8381BC3524700456DAB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8371BC3524700456DAB /* StudentLocation.swift */; settings = {ASSET_TAGS = (); }; };
+		4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */; settings = {ASSET_TAGS = (); }; };
+		4907B83C1BC3615500456DAB /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B83B1BC3615500456DAB /* Random.swift */; settings = {ASSET_TAGS = (); }; };
 		4976A8711BBCB2210053C745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8701BBCB2210053C745 /* AppDelegate.swift */; };
 		4976A8731BBCB2210053C745 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8721BBCB2210053C745 /* ViewController.swift */; };
 		4976A8761BBCB2210053C745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976A8741BBCB2210053C745 /* Main.storyboard */; };
@@ -39,6 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4907B8311BC34C8000456DAB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4907B8331BC34DC900456DAB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4907B8351BC34E3900456DAB /* StudentLocationsServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationsServiceable.swift; sourceTree = "<group>"; };
+		4907B8371BC3524700456DAB /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeStudentLocationService.swift; sourceTree = "<group>"; };
+		4907B83B1BC3615500456DAB /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		4976A86D1BBCB2210053C745 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4976A8701BBCB2210053C745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4976A8721BBCB2210053C745 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4907B8341BC34DC900456DAB /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +100,7 @@
 		4976A8641BBCB2210053C745 = {
 			isa = PBXGroup;
 			children = (
+				4907B8331BC34DC900456DAB /* MapKit.framework */,
 				4976A86F1BBCB2210053C745 /* OnTheMap */,
 				4976A8871BBCB2210053C745 /* OnTheMapTests */,
 				4976A8921BBCB2210053C745 /* OnTheMapUITests */,
@@ -116,6 +130,7 @@
 				4976A87F1BBCB2210053C745 /* Info.plist */,
 				4976A8771BBCB2210053C745 /* OnTheMap.xcdatamodeld */,
 				4976A8A11BBCBABB0053C745 /* LoginViewController.swift */,
+				4907B8311BC34C8000456DAB /* MapViewController.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -144,6 +159,9 @@
 				4976A8A81BBCC3B10053C745 /* FakeServices */,
 				4976A8A41BBCBDFB0053C745 /* LoginServiceable.swift */,
 				4976A8A61BBCC1DA0053C745 /* LoginSession.swift */,
+				4907B8351BC34E3900456DAB /* StudentLocationsServiceable.swift */,
+				4907B8371BC3524700456DAB /* StudentLocation.swift */,
+				4907B83B1BC3615500456DAB /* Random.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -152,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */,
+				4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */,
 			);
 			name = FakeServices;
 			sourceTree = "<group>";
@@ -287,12 +306,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4976A8A21BBCBABB0053C745 /* LoginViewController.swift in Sources */,
+				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
+				4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */,
 				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,
 				4976A8731BBCB2210053C745 /* ViewController.swift in Sources */,
 				4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */,
 				4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */,
+				4907B83C1BC3615500456DAB /* Random.swift in Sources */,
 				4976A8711BBCB2210053C745 /* AppDelegate.swift in Sources */,
+				4907B8381BC3524700456DAB /* StudentLocation.swift in Sources */,
+				4907B8321BC34C8000456DAB /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +543,7 @@
 				4976A89A1BBCB2210053C745 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4976A89B1BBCB2210053C745 /* Build configuration list for PBXNativeTarget "OnTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +552,7 @@
 				4976A89D1BBCB2210053C745 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4976A89E1BBCB2210053C745 /* Build configuration list for PBXNativeTarget "OnTheMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +561,7 @@
 				4976A8A01BBCB2210053C745 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

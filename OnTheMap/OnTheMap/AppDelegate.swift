@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FakeSessionService()
     }()
     
+    internal static let studentLocationService = {
+        return FakeStudentLocationService()
+    }()
+    
+    internal static var currentSession: LoginSession?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
