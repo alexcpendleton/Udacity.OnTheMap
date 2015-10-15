@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 public protocol StudentLocationsServiceable {
+    func getLatest100()->[StudentLocation]
     func get(limit:Int?, skip:Int?, order:String?)->[StudentLocation]
     func create(location:StudentLocation)
 }

@@ -15,16 +15,21 @@ public class MapViewController : UIViewController, MKMapViewDelegate{
     var studentLocationService = {
         return AppDelegate.studentLocationService
     }()
+    var currentLocations:[StudentLocation]!
     
     public override func viewWillAppear(animated: Bool) {
         map.delegate = self
+        
+        if currentLocations == nil {
+            currentLocations = studentLocationService.getLatest100()
+        }
         
         addAnnotations()
         super.viewWillAppear(animated)
     }
 
     func addAnnotations() {
-        map.addAnnotations(studentLocationService.get(nil, skip: nil, order: nil).map({ makeAnnotation($0) }))
+        map.addAnnotations(currentLocations.map({ makeAnnotation($0) }))
     }
     
     func makeAnnotation(from:StudentLocation) -> MKPointAnnotation {

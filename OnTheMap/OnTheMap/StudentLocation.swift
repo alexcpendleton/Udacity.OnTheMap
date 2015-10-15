@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StudentLocation {
+public class StudentLocation : CustomStringConvertible {
     var objectId: String = ""
     var uniqueKey: String = ""
     var firstName: String = ""
@@ -20,4 +20,8 @@ public class StudentLocation {
     var createdAt: NSDate?
     var updatedAt: NSDate?
     var acl: NSObject?
+    
+    
+    public var description: String { get { return firstName + " " + lastName } }
+    
 }
