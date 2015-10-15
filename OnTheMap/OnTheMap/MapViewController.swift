@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 
-public class MapViewController : UIViewController, MKMapViewDelegate{
+public class MapViewController : UIViewController, MKMapViewDelegate {
     @IBOutlet weak var map: MKMapView!
     
     var studentLocationService = {
@@ -60,11 +60,8 @@ public class MapViewController : UIViewController, MKMapViewDelegate{
     
     public func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.sharedApplication()
             if let toOpen = view.annotation?.subtitle! {
-                if toOpen.isProbablyAValidUrl() {
-                    app.openURL(NSURL(string: toOpen)!)
-                }
+                toOpen.openUrl()
             }
         }
     }

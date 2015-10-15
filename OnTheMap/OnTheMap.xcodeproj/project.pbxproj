@@ -14,7 +14,6 @@
 		4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */; settings = {ASSET_TAGS = (); }; };
 		4907B83C1BC3615500456DAB /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B83B1BC3615500456DAB /* Random.swift */; settings = {ASSET_TAGS = (); }; };
 		4976A8711BBCB2210053C745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8701BBCB2210053C745 /* AppDelegate.swift */; };
-		4976A8731BBCB2210053C745 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8721BBCB2210053C745 /* ViewController.swift */; };
 		4976A8761BBCB2210053C745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976A8741BBCB2210053C745 /* Main.storyboard */; };
 		4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8771BBCB2210053C745 /* OnTheMap.xcdatamodeld */; };
 		4976A87B1BBCB2210053C745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4976A87A1BBCB2210053C745 /* Assets.xcassets */; };
@@ -55,7 +54,6 @@
 		4907B83B1BC3615500456DAB /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		4976A86D1BBCB2210053C745 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4976A8701BBCB2210053C745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4976A8721BBCB2210053C745 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4976A8751BBCB2210053C745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4976A8781BBCB2210053C745 /* OnTheMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnTheMap.xcdatamodel; sourceTree = "<group>"; };
 		4976A87A1BBCB2210053C745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 			children = (
 				4976A8A31BBCBB610053C745 /* Common */,
 				4976A8701BBCB2210053C745 /* AppDelegate.swift */,
-				4976A8721BBCB2210053C745 /* ViewController.swift */,
 				4976A8741BBCB2210053C745 /* Main.storyboard */,
 				4976A87A1BBCB2210053C745 /* Assets.xcassets */,
 				4976A87C1BBCB2210053C745 /* LaunchScreen.storyboard */,
@@ -317,7 +314,6 @@
 				4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */,
 				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,
-				4976A8731BBCB2210053C745 /* ViewController.swift in Sources */,
 				4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */,
 				4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */,
 				4907B83C1BC3615500456DAB /* Random.swift in Sources */,

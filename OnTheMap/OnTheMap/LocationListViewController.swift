@@ -40,4 +40,9 @@ public class LocationListViewController : UIViewController, UITableViewDataSourc
         cell.imageView?.image = UIImage(named: "pin")
         return cell
     }
+    
+    public func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = currentLocations[indexPath.row]
+        item.mediaURL.openUrl()
+    }
 }

@@ -29,4 +29,13 @@ extension String {
         }
         return true
     }
+    
+    func openUrl()->Bool {
+        let app = UIApplication.sharedApplication()
+        if self.isProbablyAValidUrl() {
+            app.openURL(NSURL(string: self)!)
+            return true
+        }
+        return false
+    }
 }
