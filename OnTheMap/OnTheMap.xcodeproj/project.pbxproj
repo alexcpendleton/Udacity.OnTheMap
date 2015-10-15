@@ -25,6 +25,8 @@
 		4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A41BBCBDFB0053C745 /* LoginServiceable.swift */; settings = {ASSET_TAGS = (); }; };
 		4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A61BBCC1DA0053C745 /* LoginSession.swift */; settings = {ASSET_TAGS = (); }; };
 		4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */; settings = {ASSET_TAGS = (); }; };
+		49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FF81BC5ECF600F038ED /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		49F25FFB1BCF2C1900F038ED /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		4976A8A41BBCBDFB0053C745 /* LoginServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServiceable.swift; sourceTree = "<group>"; };
 		4976A8A61BBCC1DA0053C745 /* LoginSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
 		4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSessionService.swift; sourceTree = "<group>"; };
+		49F25FF81BC5ECF600F038ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				4976A8771BBCB2210053C745 /* OnTheMap.xcdatamodeld */,
 				4976A8A11BBCBABB0053C745 /* LoginViewController.swift */,
 				4907B8311BC34C8000456DAB /* MapViewController.swift */,
+				49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				4907B8351BC34E3900456DAB /* StudentLocationsServiceable.swift */,
 				4907B8371BC3524700456DAB /* StudentLocation.swift */,
 				4907B83B1BC3615500456DAB /* Random.swift */,
+				49F25FF81BC5ECF600F038ED /* Extensions.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4976A8A21BBCBABB0053C745 /* LoginViewController.swift in Sources */,
+				49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */,
 				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
 				4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */,
 				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
@@ -314,6 +321,7 @@
 				4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */,
 				4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */,
 				4907B83C1BC3615500456DAB /* Random.swift in Sources */,
+				49F25FFB1BCF2C1900F038ED /* LocationListViewController.swift in Sources */,
 				4976A8711BBCB2210053C745 /* AppDelegate.swift in Sources */,
 				4907B8381BC3524700456DAB /* StudentLocation.swift in Sources */,
 				4907B8321BC34C8000456DAB /* MapViewController.swift in Sources */,
