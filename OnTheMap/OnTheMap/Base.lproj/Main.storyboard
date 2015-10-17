@@ -140,6 +140,123 @@
             </objects>
             <point key="canvasLocation" x="4455" y="182"/>
         </scene>
+        <!--New Location View Controller-->
+        <scene sceneID="Nqc-zr-q5J">
+            <objects>
+                <viewController storyboardIdentifier="NewLocationViewController" id="acn-t4-cfy" customClass="NewLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rlf-Ak-w5L"/>
+                        <viewControllerLayoutGuide type="bottom" id="O30-JY-oSe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G7W-d3-E2P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8h3-3o-pvG">
+                                <rect key="frame" x="0.0" y="64" width="600" height="139"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oto-4p-C42">
+                                        <rect key="frame" x="0.0" y="8" width="600" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="Gmb-CS-9ih"/>
+                                            <constraint firstAttribute="height" constant="32" id="x6W-84-my0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWa-78-YMx">
+                                        <rect key="frame" x="0.0" y="42" width="600" height="32"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3x-nU-8gh" userLabel="today?">
+                                        <rect key="frame" x="0.0" y="77" width="600" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="6fR-JV-zVc"/>
+                                            <constraint firstAttribute="width" constant="600" id="bmX-Xu-MAC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="SWa-78-YMx" firstAttribute="centerX" secondItem="8h3-3o-pvG" secondAttribute="centerX" id="13J-ke-wLP"/>
+                                    <constraint firstItem="SWa-78-YMx" firstAttribute="top" secondItem="Oto-4p-C42" secondAttribute="bottom" constant="2" id="2UP-sE-Zuu"/>
+                                    <constraint firstItem="Oto-4p-C42" firstAttribute="top" secondItem="8h3-3o-pvG" secondAttribute="top" constant="8" id="BNh-9B-7pc"/>
+                                    <constraint firstAttribute="bottom" secondItem="k3x-nU-8gh" secondAttribute="bottom" constant="30" id="JoR-SB-O79"/>
+                                    <constraint firstItem="Oto-4p-C42" firstAttribute="centerX" secondItem="8h3-3o-pvG" secondAttribute="centerX" id="S1V-Yp-iGp"/>
+                                    <constraint firstItem="k3x-nU-8gh" firstAttribute="top" secondItem="SWa-78-YMx" secondAttribute="bottom" constant="3" id="ZcW-cr-PLF"/>
+                                    <constraint firstItem="SWa-78-YMx" firstAttribute="leading" secondItem="Oto-4p-C42" secondAttribute="leading" id="eZf-a3-2JQ"/>
+                                    <constraint firstItem="k3x-nU-8gh" firstAttribute="centerY" secondItem="8h3-3o-pvG" secondAttribute="centerY" constant="23.5" id="jiM-Cj-ynN"/>
+                                    <constraint firstItem="k3x-nU-8gh" firstAttribute="centerX" secondItem="8h3-3o-pvG" secondAttribute="centerX" id="xCN-Dh-UBr"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAg-QS-Tmf">
+                                <rect key="frame" x="0.0" y="211" width="600" height="285"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FyE-hN-U1S">
+                                        <rect key="frame" x="20" y="128" width="560" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="560" id="EYJ-aL-A1u"/>
+                                            <constraint firstAttribute="height" constant="30" id="VKQ-bq-Cci"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.27450981740000002" green="0.73725491759999995" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="FyE-hN-U1S" firstAttribute="centerY" secondItem="YAg-QS-Tmf" secondAttribute="centerY" id="GoP-ul-V4D"/>
+                                    <constraint firstAttribute="width" constant="600" id="t76-eb-C5x"/>
+                                    <constraint firstItem="FyE-hN-U1S" firstAttribute="centerX" secondItem="YAg-QS-Tmf" secondAttribute="centerX" id="vn3-KP-1VV"/>
+                                    <constraint firstAttribute="height" constant="285" id="yOl-FW-zKD"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiY-TA-lYE">
+                                <rect key="frame" x="185" y="521" width="230" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bZ3-e6-4yH"/>
+                                    <constraint firstAttribute="width" constant="230" id="wjJ-Yk-gNj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Find on the Map"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O30-JY-oSe" firstAttribute="top" secondItem="TiY-TA-lYE" secondAttribute="bottom" constant="35" id="3QY-Iz-7hE"/>
+                            <constraint firstItem="YAg-QS-Tmf" firstAttribute="centerX" secondItem="G7W-d3-E2P" secondAttribute="centerX" id="Aj5-ah-o1x"/>
+                            <constraint firstAttribute="trailing" secondItem="8h3-3o-pvG" secondAttribute="trailing" id="E7E-TJ-xNB"/>
+                            <constraint firstItem="8h3-3o-pvG" firstAttribute="leading" secondItem="G7W-d3-E2P" secondAttribute="leading" id="KRr-Hl-5iy"/>
+                            <constraint firstItem="8h3-3o-pvG" firstAttribute="top" secondItem="rlf-Ak-w5L" secondAttribute="bottom" id="MoH-8t-oaw"/>
+                            <constraint firstItem="YAg-QS-Tmf" firstAttribute="top" secondItem="8h3-3o-pvG" secondAttribute="bottom" constant="8" id="ix9-gp-4nL"/>
+                            <constraint firstItem="TiY-TA-lYE" firstAttribute="centerX" secondItem="G7W-d3-E2P" secondAttribute="centerX" id="qpM-4O-zWw"/>
+                            <constraint firstItem="O30-JY-oSe" firstAttribute="top" secondItem="YAg-QS-Tmf" secondAttribute="bottom" constant="104" id="zio-BH-tyz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="09l-se-djk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="ibA-ww-y6f"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="ibA-ww-y6f" id="xqV-tP-Z4V"/>
+                        <outlet property="enteredLocationField" destination="FyE-hN-U1S" id="kfM-D7-svJ"/>
+                        <outlet property="findEnteredLocationButton" destination="TiY-TA-lYE" id="Owk-pt-OHT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKn-jO-YNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6163" y="516"/>
+        </scene>
         <!--Location List View Controller-->
         <scene sceneID="i1L-NW-RnF">
             <objects>
@@ -252,7 +369,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="p7U-De-QlZ">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9cg-1J-R2y" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="9cg-1J-R2y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="DXA-vT-AUq">
                         <autoresizingMask key="autoresizingMask"/>
@@ -266,6 +383,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="te3-US-MaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2827" y="504"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u1Z-ds-CcQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftC-Lm-KCa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ple-SK-4Gg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="acn-t4-cfy" kind="relationship" relationship="rootViewController" id="MwY-Ba-Dz9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxW-Lt-cLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5443" y="516"/>
         </scene>
     </scenes>
     <resources>
