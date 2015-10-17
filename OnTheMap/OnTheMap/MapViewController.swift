@@ -9,20 +9,12 @@ import Foundation
 import UIKit
 import MapKit
 
-public class MapViewController : UIViewController, MKMapViewDelegate {
+
+public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDelegate {
     @IBOutlet weak var map: MKMapView!
-    
-    var studentLocationService = {
-        return AppDelegate.studentLocationService
-    }()
-    var currentLocations:[StudentLocation]!
     
     public override func viewWillAppear(animated: Bool) {
         map.delegate = self
-        
-        if currentLocations == nil {
-            currentLocations = studentLocationService.getLatest100()
-        }
         
         addAnnotations()
         super.viewWillAppear(animated)

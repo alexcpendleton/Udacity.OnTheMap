@@ -13,6 +13,8 @@
 		4907B8381BC3524700456DAB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8371BC3524700456DAB /* StudentLocation.swift */; settings = {ASSET_TAGS = (); }; };
 		4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */; settings = {ASSET_TAGS = (); }; };
 		4907B83C1BC3615500456DAB /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B83B1BC3615500456DAB /* Random.swift */; settings = {ASSET_TAGS = (); }; };
+		496354C51BD07D1700F41515 /* StandardNavigationBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496354C41BD07D1700F41515 /* StandardNavigationBarBuilder.swift */; settings = {ASSET_TAGS = (); }; };
+		496354C71BD1C78400F41515 /* StudentLocationViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496354C61BD1C78400F41515 /* StudentLocationViewControllerBase.swift */; settings = {ASSET_TAGS = (); }; };
 		4976A8711BBCB2210053C745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8701BBCB2210053C745 /* AppDelegate.swift */; };
 		4976A8761BBCB2210053C745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976A8741BBCB2210053C745 /* Main.storyboard */; };
 		4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8771BBCB2210053C745 /* OnTheMap.xcdatamodeld */; };
@@ -52,6 +54,8 @@
 		4907B8371BC3524700456DAB /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeStudentLocationService.swift; sourceTree = "<group>"; };
 		4907B83B1BC3615500456DAB /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		496354C41BD07D1700F41515 /* StandardNavigationBarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardNavigationBarBuilder.swift; sourceTree = "<group>"; };
+		496354C61BD1C78400F41515 /* StudentLocationViewControllerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationViewControllerBase.swift; sourceTree = "<group>"; };
 		4976A86D1BBCB2210053C745 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4976A8701BBCB2210053C745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4976A8751BBCB2210053C745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				4976A8A11BBCBABB0053C745 /* LoginViewController.swift */,
 				4907B8311BC34C8000456DAB /* MapViewController.swift */,
 				49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */,
+				496354C41BD07D1700F41515 /* StandardNavigationBarBuilder.swift */,
+				496354C61BD1C78400F41515 /* StudentLocationViewControllerBase.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -314,7 +320,9 @@
 				4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */,
 				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,
+				496354C51BD07D1700F41515 /* StandardNavigationBarBuilder.swift in Sources */,
 				4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */,
+				496354C71BD1C78400F41515 /* StudentLocationViewControllerBase.swift in Sources */,
 				4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */,
 				4907B83C1BC3615500456DAB /* Random.swift in Sources */,
 				49F25FFB1BCF2C1900F038ED /* LocationListViewController.swift in Sources */,

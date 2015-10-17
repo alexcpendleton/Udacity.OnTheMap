@@ -9,31 +9,21 @@
 import Foundation
 import UIKit
 
-public class LocationListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+public class LocationListViewController : StudentLocationsViewControllerBase, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    
-    public lazy var locationService: StudentLocationsServiceable = {
-        return AppDelegate.studentLocationService
-        }()
-    private lazy var currentLocations:[StudentLocation] = {
-        return self.queryLocations()
-    }()
     
     public override func viewWillAppear(animated: Bool) {
         //http://stackoverflow.com/a/15010646/21201
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
+        
         super.viewWillAppear(animated)
     }
     
-    func refresh(refreshControl: UIRefreshControl) {
-        currentLocations = queryLocations()
+    public func refresh(refreshControl: UIRefreshControl) {
+        refresh()
         refreshControl.endRefreshing()
-    }
-    
-    func queryLocations() -> [StudentLocation] {
-        return locationService.getLatest100()
     }
     
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
