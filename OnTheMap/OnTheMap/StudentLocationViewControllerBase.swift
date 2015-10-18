@@ -54,12 +54,19 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     public func instantiateAndPresentNewLocationView() {
-        
-        if let target = storyboard?.instantiateViewControllerWithIdentifier("NewLocationViewController") as! NewLocationViewController? {
-            tabBarController?.tabBar.hidden = true
-            navigationController?.pushViewController(target, animated: true)
-
-            //presentViewController(target, animated: true, completion: nil)
+        let modally = true
+        if modally {
+            if let target = storyboard?.instantiateViewControllerWithIdentifier("NewLocationViewController") as! NewLocationViewController? {
+                
+                tabBarController?.tabBar.hidden = true
+                navigationController?.pushViewController(target, animated: true)
+                
+                
+            } else {
+                if let target = storyboard?.instantiateViewControllerWithIdentifier("NewLocationNavigationController") {
+                    presentViewController(target, animated: true, completion: nil)
+                }
+            }
         }
     }
 }
