@@ -21,6 +21,10 @@ public class LocationListViewController : StudentLocationsViewControllerBase, UI
         super.viewWillAppear(animated)
     }
     
+    override public func refresh() {
+        super.refresh()
+    }
+    
     public func refresh(refreshControl: UIRefreshControl) {
         refresh()
         refreshControl.endRefreshing()

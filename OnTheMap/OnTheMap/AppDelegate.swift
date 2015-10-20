@@ -12,19 +12,18 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
     internal static let loginService = {
         return FakeSessionService()
     }()
-    
     internal static let studentLocationService:StudentLocationsServiceable = {
         return FakeStudentLocationService()
     }()
-    
+    internal static let userInfoService: UserInfoServiceable = {
+        return FakeUserInfoService()
+    }()
     internal static var currentSession: LoginSession?
-    
+    internal static var currentUser: UserInfo?
     internal static var alerter = SingleButtonAlertMessager()
-    
     internal static var useTestingDefaults = true
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

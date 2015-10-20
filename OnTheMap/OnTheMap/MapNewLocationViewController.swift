@@ -19,6 +19,7 @@ public class MapNewLocationViewController : UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     var chosenLocation: CLPlacemark!
+    var userInfo: UserInfo!
     
     internal var studentLocationService = {
         return AppDelegate.studentLocationService
@@ -56,8 +57,8 @@ public class MapNewLocationViewController : UIViewController {
         if isValid {
             let coordinate = getChosenCoordinate()
             let filled = StudentLocation()
-            filled.firstName = "First Name..."
-            filled.lastName = "Last Name..."
+            filled.firstName = userInfo.first_name
+            filled.lastName = userInfo.last_name
             filled.latitude  = coordinate.latitude
             filled.longitude = coordinate.longitude
             filled.mediaURL = mediaUrl
@@ -109,9 +110,12 @@ public class MapNewLocationViewController : UIViewController {
         // can re-enter a location if desired. Cancel
         // will quit out entirely.
         navigationItem.hidesBackButton = false
+        if userInfo == nil {
+            userInfo = AppDelegate.currentUser!
+        }
         
-        if useTestingDefaults {
-            mediaUrlField?.text = "http://www.alexcpendleton.com"
+        if !userInfo.website_url.isEmpty {
+            mediaUrlField.text = userInfo.website_url
         }
         
         displayLocation()

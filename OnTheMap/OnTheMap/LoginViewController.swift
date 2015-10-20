@@ -15,6 +15,7 @@ public class LoginViewController : UIViewController {
     }
     
     let loginService = { AppDelegate.loginService }()
+    let userInfoService = { AppDelegate.userInfoService }()
     
     @IBAction func loginOnTouchUpInside() {
         attemptLogin()
@@ -34,8 +35,15 @@ public class LoginViewController : UIViewController {
     }
     
     func onSuccessfulLogin(session: LoginSession) {
-        AppDelegate.currentSession = session
-        proceed()
+        userInfoService.get(session.account.key, completionHandler: { (info, error) -> Void in
+            if info != nil {
+                AppDelegate.currentUser = info!
+                AppDelegate.currentSession = session
+                self.proceed()
+            } else {
+                self.presentFailure()
+            }
+        })
     }
 
     let proceedSegueName = "AfterLoginSegue"
@@ -49,38 +57,7 @@ public class LoginViewController : UIViewController {
     }
     
     func presentFailure() {
-        let vc = UIAlertController(title: "Login Failed", message: "Sorry, we couldn't log you in. Please check your credentials and try again.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            // ...
-        }
-        vc.addAction(OKAction)
-        
-        let animator = ShakeAnimator()
-        
-        presentViewController(vc, animated: true) { () -> Void in
-            animator.animate(vc.view)
-        }
+        AppDelegate.alerter.showAlert("Sorry, we couldn't log you in. Please check your credentials and try again.", title: "Login Failed", presentUsing: self)
 
-    }
-}
-
-public class ShakeAnimator {
-    func createAnimation() -> CAKeyframeAnimation{
-        // Taken from http://stackoverflow.com/a/9371196/21201
-        let anim = CAKeyframeAnimation( keyPath:"transform" )
-        anim.values = [
-            NSValue( CATransform3D:CATransform3DMakeTranslation(-5, 0, 0 ) ),
-            NSValue( CATransform3D:CATransform3DMakeTranslation( 5, 0, 0 ) )
-        ]
-        anim.autoreverses = true
-        anim.repeatCount = 2
-        anim.duration = 10/100
-        
-        return anim
-    }
-    
-    func animate(toShake: UIView) {
-        toShake.layer.addAnimation(createAnimation(), forKey:nil )
     }
 }

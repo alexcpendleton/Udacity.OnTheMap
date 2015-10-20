@@ -29,6 +29,9 @@
 		4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */; settings = {ASSET_TAGS = (); }; };
 		497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */; settings = {ASSET_TAGS = (); }; };
 		497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		49CD26E21BD5EFFB006E54DF /* FakeUserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */; settings = {ASSET_TAGS = (); }; };
+		49CD26E41BD5F37D006E54DF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E31BD5F37D006E54DF /* UserInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		49CD26E61BD5F392006E54DF /* UserInfoServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */; settings = {ASSET_TAGS = (); }; };
 		49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FF81BC5ECF600F038ED /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		49F25FFB1BCF2C1900F038ED /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -79,6 +82,9 @@
 		4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSessionService.swift; sourceTree = "<group>"; };
 		497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleButtonAlertMessager.swift; sourceTree = "<group>"; };
 		497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNewLocationViewController.swift; sourceTree = "<group>"; };
+		49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUserInfoService.swift; sourceTree = "<group>"; };
+		49CD26E31BD5F37D006E54DF /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoServiceable.swift; sourceTree = "<group>"; };
 		49F25FF81BC5ECF600F038ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +186,8 @@
 				4907B83B1BC3615500456DAB /* Random.swift */,
 				49F25FF81BC5ECF600F038ED /* Extensions.swift */,
 				497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */,
+				49CD26E31BD5F37D006E54DF /* UserInfo.swift */,
+				49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -189,6 +197,7 @@
 			children = (
 				4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */,
 				4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */,
+				49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */,
 			);
 			name = FakeServices;
 			sourceTree = "<group>";
@@ -329,8 +338,10 @@
 				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
 				496354C91BD1D6D200F41515 /* NewLocationViewController.swift in Sources */,
 				497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */,
+				49CD26E61BD5F392006E54DF /* UserInfoServiceable.swift in Sources */,
 				4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */,
 				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
+				49CD26E41BD5F37D006E54DF /* UserInfo.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,
 				4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */,
 				496354C71BD1C78400F41515 /* StudentLocationViewControllerBase.swift in Sources */,
@@ -338,6 +349,7 @@
 				4907B83C1BC3615500456DAB /* Random.swift in Sources */,
 				49F25FFB1BCF2C1900F038ED /* LocationListViewController.swift in Sources */,
 				496354CB1BD4423700F41515 /* Locator.swift in Sources */,
+				49CD26E21BD5EFFB006E54DF /* FakeUserInfoService.swift in Sources */,
 				4976A8711BBCB2210053C745 /* AppDelegate.swift in Sources */,
 				4907B8381BC3524700456DAB /* StudentLocation.swift in Sources */,
 				4907B8321BC34C8000456DAB /* MapViewController.swift in Sources */,
