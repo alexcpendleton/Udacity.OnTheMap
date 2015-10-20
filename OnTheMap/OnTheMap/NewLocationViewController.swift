@@ -49,6 +49,13 @@ public class NewLocationViewController : UIViewController {
     public override func viewWillAppear(animated: Bool) {
         navigationItem.hidesBackButton = true
         navigationController?.navigationBarHidden = false
+        /*
+        let navBar = navigationController?.navigationBar
+        self.view.backgroundColor = navBar?.barTintColor?.copy() as? UIColor
+        navBar?.translucent = true
+        navBar?.shadowImage = UIImage()
+        navBar?.setBackgroundImage(nil, forBarMetrics: .Default)
+        */
         super.viewWillAppear(animated)
     }
 }

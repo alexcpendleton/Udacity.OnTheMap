@@ -190,7 +190,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="JPE-P1-crt"/>
                                     <constraint firstItem="SWa-78-YMx" firstAttribute="centerX" secondItem="8h3-3o-pvG" secondAttribute="centerX" id="Jec-Vc-MVR"/>
@@ -246,7 +245,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="8h3-3o-pvG" secondAttribute="trailing" constant="-20" id="2RW-xC-bgR"/>
                             <constraint firstItem="8h3-3o-pvG" firstAttribute="leading" secondItem="G7W-d3-E2P" secondAttribute="leadingMargin" constant="-20" id="7ga-aR-0mA"/>
