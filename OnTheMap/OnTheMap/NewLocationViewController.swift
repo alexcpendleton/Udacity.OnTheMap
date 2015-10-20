@@ -16,30 +16,63 @@ public class NewLocationViewController : UIViewController {
     @IBOutlet weak var enteredLocationField: UITextField?
     public lazy var locator:Locator = {
         return Locator()
-    }()
+        }()
+    
+    public var useTestingDefaults = AppDelegate.useTestingDefaults
+    
+    // I feel like these strings should be in some sort of localizable thing
+    // Does the course cover that?
+    let nothingFoundMessage = "We couldn't find anything at that location.";
     
     @IBAction func findEnteredLocationPressed(sender: AnyObject?) {
         attemptToGeocode(enteredLocationField!.text!)
     }
     
     func attemptToGeocode(address:String) {
-        locator.geocode(address) { (placemark, error) -> Void in
-            if error != nil {
-                self.displayGeocodeError(error)
-            } else {
-                self.proceed(placemark)
+        if address.isEmpty {
+            displayErrorMessage("Please enter a location to geocode.")
+        } else {
+            locator.geocode(address) { (placemark, error) -> Void in
+                if error != nil {
+                    self.displayGeocodeError(error!)
+                } else {
+                    if placemark?.count == 0 {
+                        // I don't think this is something that can happen
+                        // but it's covered for paranoia's sake
+                        self.displayErrorMessage(self.nothingFoundMessage)
+                    } else {
+                        self.proceed(placemark!)
+                    }
+                }
             }
         }
     }
     
-    func displayGeocodeError(error:NSError?) {
-        print("displayGeocodeError: ")
-        print(error)
+    func displayErrorMessage(message:String) {
+        AppDelegate.alerter.showAlert(message, title: "Whoops", presentUsing: self)
     }
     
-    func proceed(placemark:[CLPlacemark]?) {
+    func displayGeocodeError(error:NSError) {
+        var message = "There was a problem when trying to geocode that location, sorry!"
+        // Handle a few known error cases
+        if error.code == CLError.GeocodeFoundNoResult.rawValue {
+            message = nothingFoundMessage
+        }
+        displayErrorMessage(message)
+        print(error.description)
+    }
+    
+    func proceed(placemark:[CLPlacemark]) {
         print("geocoded successfully")
-        print(placemark)
+        // For the sake of simplicity we'll take the first placemark and
+        // hopefully that's good enough
+        let first = placemark.first
+        
+        return;
+        let toPresent = storyboard?.instantiateViewControllerWithIdentifier("NewLocationPinViewController")
+        if toPresent != nil {
+            self.presentViewController(toPresent!, animated: true, completion: nil)
+        }
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject?) {
@@ -47,6 +80,9 @@ public class NewLocationViewController : UIViewController {
     }
     
     public override func viewWillAppear(animated: Bool) {
+        if (useTestingDefaults) {
+            enteredLocationField?.text = "1 Infinite Loop, Cupertino, CA"
+        }
         navigationItem.hidesBackButton = true
         navigationController?.navigationBarHidden = false
         /*

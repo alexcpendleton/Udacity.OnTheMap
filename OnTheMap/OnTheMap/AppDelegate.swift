@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     internal static var currentSession: LoginSession?
     
+    internal static var alerter = SingleButtonAlertMessager()
+    
+    internal static var useTestingDefaults = true
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true
