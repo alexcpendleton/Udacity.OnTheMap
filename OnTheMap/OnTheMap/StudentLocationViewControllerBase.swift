@@ -22,17 +22,18 @@ public class StudentLocationsViewControllerBase : UIViewController {
     @IBOutlet weak var logoutButton: UIBarButtonItem?
     
     override public func viewWillAppear(animated: Bool) {
+        if self.isMovingToParentViewController() {
+            refresh()
+        }
         tabBarController?.tabBar.hidden = false
         super.viewWillAppear(animated)
     }
     
     @IBAction func makePinPressed(sender: AnyObject) {
-        print("make pin pressed")
         makeNewPin()
     }
     
     @IBAction func refreshPressed(sender: AnyObject) {
-        print("refresh pressed")
         refresh()
     }
     
@@ -41,7 +42,6 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     public func makeNewPin() {
-        print("make new pin called")
         instantiateAndPresentNewLocationView()
     }
     
@@ -54,19 +54,10 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     public func instantiateAndPresentNewLocationView() {
-        let modally = true
-        if modally {
-            if let target = storyboard?.instantiateViewControllerWithIdentifier("NewLocationViewController") as! NewLocationViewController? {
-                
-                tabBarController?.tabBar.hidden = true
-                navigationController?.pushViewController(target, animated: true)
-                
-                
-            } else {
-                if let target = storyboard?.instantiateViewControllerWithIdentifier("NewLocationNavigationController") {
-                    presentViewController(target, animated: true, completion: nil)
-                }
-            }
+        if let target = storyboard?.instantiateViewControllerWithIdentifier("NewLocationViewController") as! NewLocationViewController? {
+            
+            tabBarController?.tabBar.hidden = true
+            navigationController?.pushViewController(target, animated: true)
         }
     }
 }

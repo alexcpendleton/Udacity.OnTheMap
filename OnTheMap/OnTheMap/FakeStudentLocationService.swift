@@ -12,7 +12,7 @@ public class FakeStudentLocationService : StudentLocationsServiceable {
     var allLocations: [StudentLocation]!
     
     public init() {
-        allLocations = self.makeFakeData(500)
+        allLocations = self.makeFakeData(10)
     }
     
     public func getLatest100() -> [StudentLocation] {
@@ -23,8 +23,9 @@ public class FakeStudentLocationService : StudentLocationsServiceable {
         return allLocations
     }
     
-    public func create(location: StudentLocation) {
+    public func create(location: StudentLocation, completionHandler:(StudentLocation?, NSError?)->Void) {
         allLocations.append(location)
+        completionHandler(location, nil)
     }
     
     public func makeFakeData(count:Int) -> [StudentLocation] {

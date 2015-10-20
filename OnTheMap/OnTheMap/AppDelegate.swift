@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FakeSessionService()
     }()
     
-    internal static let studentLocationService = {
+    internal static let studentLocationService:StudentLocationsServiceable = {
         return FakeStudentLocationService()
     }()
     

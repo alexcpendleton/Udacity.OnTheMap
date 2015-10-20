@@ -64,9 +64,6 @@ public class NewLocationViewController : UIViewController {
     
     func proceed(placemark:[CLPlacemark]) {
         print("geocoded successfully")
-        // For the sake of simplicity we'll take the first placemark and
-        // hopefully that's good enough
-        let first = placemark.first
         
         /* 
         Coming from a web dev background, creating and instantiating a whole
@@ -78,10 +75,14 @@ public class NewLocationViewController : UIViewController {
         Is there something else I should be doing, or is this just the way
         of the world in iOS? Would swapping out nibs/xibs be better?
         */
-        let toPresent = storyboard?.instantiateViewControllerWithIdentifier("MapNewLocationViewController")
-        if toPresent != nil {
-            self.presentViewController(toPresent!, animated: true, completion: nil)
-        }
+        let toPresent = storyboard?.instantiateViewControllerWithIdentifier("MapNewLocationViewController") as! MapNewLocationViewController
+        
+        // For the sake of simplicity we'll take the first placemark and
+        // hopefully that's good enough
+        toPresent.chosenLocation = placemark.first!
+
+        navigationController?.pushViewController(toPresent, animated: true)
+        //self.presentViewController(toPresent, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject?) {
@@ -90,17 +91,12 @@ public class NewLocationViewController : UIViewController {
     
     public override func viewWillAppear(animated: Bool) {
         if (useTestingDefaults) {
-            enteredLocationField?.text = "1 Infinite Loop, Cupertino, CA"
+            //enteredLocationField?.text = "1 Infinite Loop, Cupertino, CA"
+            enteredLocationField?.text = "Nashua, NH"
         }
         navigationItem.hidesBackButton = true
         navigationController?.navigationBarHidden = false
-        /*
-        let navBar = navigationController?.navigationBar
-        self.view.backgroundColor = navBar?.barTintColor?.copy() as? UIColor
-        navBar?.translucent = true
-        navBar?.shadowImage = UIImage()
-        navBar?.setBackgroundImage(nil, forBarMetrics: .Default)
-        */
+        
         super.viewWillAppear(animated)
     }
 }
