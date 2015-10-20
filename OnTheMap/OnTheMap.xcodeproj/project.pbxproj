@@ -28,6 +28,7 @@
 		4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A61BBCC1DA0053C745 /* LoginSession.swift */; settings = {ASSET_TAGS = (); }; };
 		4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */; settings = {ASSET_TAGS = (); }; };
 		497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */; settings = {ASSET_TAGS = (); }; };
+		497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FF81BC5ECF600F038ED /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		49F25FFB1BCF2C1900F038ED /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		4976A8A61BBCC1DA0053C745 /* LoginSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
 		4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSessionService.swift; sourceTree = "<group>"; };
 		497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleButtonAlertMessager.swift; sourceTree = "<group>"; };
+		497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNewLocationViewController.swift; sourceTree = "<group>"; };
 		49F25FF81BC5ECF600F038ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 				4976A8A31BBCBB610053C745 /* Common */,
 				4976A8701BBCB2210053C745 /* AppDelegate.swift */,
 				4976A8741BBCB2210053C745 /* Main.storyboard */,
+				497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */,
 				4976A87A1BBCB2210053C745 /* Assets.xcassets */,
 				4976A87C1BBCB2210053C745 /* LaunchScreen.storyboard */,
 				4976A87F1BBCB2210053C745 /* Info.plist */,
@@ -325,6 +328,7 @@
 				497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */,
 				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
 				496354C91BD1D6D200F41515 /* NewLocationViewController.swift in Sources */,
+				497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */,
 				4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */,
 				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,

@@ -68,8 +68,17 @@ public class NewLocationViewController : UIViewController {
         // hopefully that's good enough
         let first = placemark.first
         
-        return;
-        let toPresent = storyboard?.instantiateViewControllerWithIdentifier("NewLocationPinViewController")
+        /* 
+        Coming from a web dev background, creating and instantiating a whole
+        new view controller seems sort of bulky and redundant. Why not just
+        swap the "visible" elements for visually similar layouts? I'm having
+        trouble figuring out the best way to share identical (or very similar)
+        elements among ViewControllers, particularly navigation bars. 
+        
+        Is there something else I should be doing, or is this just the way
+        of the world in iOS? Would swapping out nibs/xibs be better?
+        */
+        let toPresent = storyboard?.instantiateViewControllerWithIdentifier("MapNewLocationViewController")
         if toPresent != nil {
             self.presentViewController(toPresent!, animated: true, completion: nil)
         }
