@@ -19,13 +19,6 @@ public class SingleButtonAlertMessager {
         alertController.addAction(OKAction)
         
         let animator = ShakeAnimator()
-        /*
-        presentUsing.presentViewController(alertController, animated: true) {
-            if shaken {
-                //animator.animate(presentUsing.view)
-            }
-        }
-*/
         presentUsing.presentViewController(alertController, animated: true) { () -> Void in
             if shaken {
                 animator.animate(presentUsing.view)

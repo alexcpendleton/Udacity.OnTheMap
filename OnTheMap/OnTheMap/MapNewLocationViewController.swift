@@ -79,7 +79,7 @@ public class MapNewLocationViewController : UIViewController {
     }
     
     func displayErrorMessage(message:String) {
-        
+        AppDelegate.alerter.showAlert(message, title: "Whoops", presentUsing: self)
     }
     
     func getChosenCoordinate() -> CLLocationCoordinate2D {

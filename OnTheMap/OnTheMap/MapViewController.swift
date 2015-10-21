@@ -11,17 +11,17 @@ import MapKit
 
 
 public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDelegate {
-    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var map: MKMapView?
     
     public override func viewWillAppear(animated: Bool) {
-        map.delegate = self
+        map?.delegate = self
         refresh()
         addAnnotations()
         super.viewWillAppear(animated)
     }
 
     func addAnnotations() {
-        map.addAnnotations(currentLocations.map({ makeAnnotation($0) }))
+        map?.addAnnotations(currentLocations.map({ makeAnnotation($0) }))
     }
     
     func makeAnnotation(from:StudentLocation) -> MKPointAnnotation {

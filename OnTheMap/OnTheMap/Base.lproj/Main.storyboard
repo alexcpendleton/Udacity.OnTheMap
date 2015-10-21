@@ -9,7 +9,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Login View Controller" id="BYZ-38-t0r" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="Login View Controller" id="BYZ-38-t0r" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -69,12 +69,22 @@
                                     <constraint firstItem="GwS-2h-155" firstAttribute="top" secondItem="lOt-Xp-22Z" secondAttribute="bottom" constant="8" id="x7v-h5-F3m"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udacity" translatesAutoresizingMaskIntoConstraints="NO" id="1Gx-Ga-d7C">
+                                <rect key="frame" x="180" y="20" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="6Dj-KR-CsU"/>
+                                    <constraint firstAttribute="width" constant="240" id="Mcr-3P-APM"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.27450981740000002" green="0.73725491759999995" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="xeh-XK-zTN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="19" id="BsF-4y-vsp"/>
                             <constraint firstItem="xeh-XK-zTN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GCI-g7-cOQ"/>
+                            <constraint firstItem="1Gx-Ga-d7C" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="PVn-U4-hkG"/>
                             <constraint firstItem="xeh-XK-zTN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XAR-gt-aCB"/>
+                            <constraint firstItem="lOt-Xp-22Z" firstAttribute="top" secondItem="1Gx-Ga-d7C" secondAttribute="bottom" constant="6" id="ZsQ-pj-zbw"/>
+                            <constraint firstItem="1Gx-Ga-d7C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="maE-Ck-ktP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -531,5 +541,6 @@
     <resources>
         <image name="list" width="32" height="32"/>
         <image name="pin" width="32" height="32"/>
+        <image name="udacity" width="256" height="256"/>
     </resources>
 </document>

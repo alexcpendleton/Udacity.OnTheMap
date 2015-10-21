@@ -13,12 +13,13 @@ public class LocationListViewController : StudentLocationsViewControllerBase, UI
     @IBOutlet weak var tableView: UITableView!
     
     public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         //http://stackoverflow.com/a/15010646/21201
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
         
-        super.viewWillAppear(animated)
     }
     
     override public func refresh() {

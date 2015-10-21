@@ -13,18 +13,13 @@ public class StudentLocationsViewControllerBase : UIViewController {
     public lazy var locationService: StudentLocationsServiceable = {
         return AppDelegate.studentLocationService
         }()
-    public lazy var currentLocations:[StudentLocation] = {
-        return self.queryLocations()
-        }()
-    
+    public lazy var currentLocations = [StudentLocation]()
     @IBOutlet weak var refreshButton: UIBarButtonItem?
     @IBOutlet weak var newPinButton: UIBarButtonItem?
     @IBOutlet weak var logoutButton: UIBarButtonItem?
     
     override public func viewWillAppear(animated: Bool) {
-        if self.isMovingToParentViewController() {
-            refresh()
-        }
+        currentLocations = queryLocations()
         tabBarController?.tabBar.hidden = false
         super.viewWillAppear(animated)
     }
@@ -38,7 +33,20 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     @IBAction func logoutPressed(sender: AnyObject) {
-        print("logout pressed")
+        logout()
+    }
+    
+    public func logout() {
+        // Smells
+        AppDelegate.currentUser = nil
+        AppDelegate.currentSession = nil
+        presentLogin()
+    }
+    
+    public func presentLogin() {
+        if let target = storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController? {
+             presentViewController(target, animated: true, completion: nil)
+        }
     }
     
     public func makeNewPin() {
