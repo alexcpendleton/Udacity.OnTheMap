@@ -12,15 +12,14 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    internal static let loginService = {
+    internal static let collectiveUdacityServices = {
         return RawUdacityServices()
     }()
+    internal static let loginService = { return collectiveUdacityServices }()
     internal static let studentLocationService:StudentLocationsServiceable = {
         return FakeStudentLocationService()
     }()
-    internal static let userInfoService: UserInfoServiceable = {
-        return FakeUserInfoService()
-    }()
+    internal static let userInfoService: UserInfoServiceable = { return collectiveUdacityServices }()
     internal static var currentSession: LoginSession?
     internal static var currentUser: UserInfo?
     internal static var alerter = SingleButtonAlertMessager()
