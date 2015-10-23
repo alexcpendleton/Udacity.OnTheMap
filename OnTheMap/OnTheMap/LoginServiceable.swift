@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol LoginServiceable {
-    func attemptToLogin(credentials:(username:String, password:String)) -> LoginResults
+    func attemptToLogin(credentials:(username:String, password:String), completionHandler: (LoginResults?, NSError?)->Void)
 }
 
 public class LoginResults {

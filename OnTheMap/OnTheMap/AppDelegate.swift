@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     internal static let loginService = {
-        return FakeSessionService()
+        return RawUdacityServices()
     }()
     internal static let studentLocationService:StudentLocationsServiceable = {
         return FakeStudentLocationService()

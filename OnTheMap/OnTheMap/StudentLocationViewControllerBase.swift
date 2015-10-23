@@ -37,7 +37,7 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     public func logout() {
-        // Smells
+        // Smells, too much non-view logic in here
         AppDelegate.currentUser = nil
         AppDelegate.currentSession = nil
         presentLogin()

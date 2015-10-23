@@ -25,12 +25,25 @@ public class LoginViewController : UIViewController {
     @IBOutlet weak var passwordField:UITextField!
     
     func attemptLogin() {
+        if usernameField.text!.isEmpty {
+            presentFailureMessage("Please enter your username.")
+            return
+        }
+        if passwordField.text!.isEmpty {
+            presentFailureMessage("Please enter your password.")
+            return
+        }
+        
+        
         let credentials = (username:usernameField.text!, password:passwordField.text!)
-        let results = loginService.attemptToLogin(credentials)
-        if results.successful {
-            onSuccessfulLogin(results.session!)
-        } else {
-            onFailedLogin()
+        loginService.attemptToLogin(credentials) { (results, error) -> Void in
+            let successful = results != nil && results!.successful
+            if successful {
+                self.onSuccessfulLogin(results!.session!)
+            } else {
+                self.onFailedLogin(error)
+            }
+            
         }
     }
     
@@ -41,7 +54,7 @@ public class LoginViewController : UIViewController {
                 AppDelegate.currentSession = session
                 self.proceed()
             } else {
-                self.presentFailure()
+                self.presentFailure(error)
             }
         })
     }
@@ -49,15 +62,31 @@ public class LoginViewController : UIViewController {
     let proceedSegueName = "AfterLoginSegue"
 
     func proceed() {
-        performSegueWithIdentifier(proceedSegueName, sender: self)
+        //performSegueWithIdentifier(proceedSegueName, sender: self)
+        //self.performOnMainQueue {
+            let toPresent = self.storyboard?.instantiateViewControllerWithIdentifier("MainTabBarController")
+            self.presentViewController(toPresent!, animated: true, completion: nil)
+        //}
+        
     }
     
-    func onFailedLogin() {
-        presentFailure()
+    func onFailedLogin(error: NSError?) {
+        presentFailure(error)
     }
     
-    func presentFailure() {
-        AppDelegate.alerter.showAlert("Sorry, we couldn't log you in. Please check your credentials and try again.", title: "Login Failed", presentUsing: self)
+    func presentFailure(error: NSError?) {
+        var message = "Sorry, we couldn't log you in. Please check your credentials and try again."
+        let httpResponse = error?.userInfo["httpResponse"] as? NSHTTPURLResponse
+        if httpResponse != nil {
+            if [400, 403].contains(httpResponse!.statusCode) {
+                message = "Sorry, that account was not found or your credentials were invalid."
+            }
+        }
+        presentFailureMessage(message)
 
+    }
+    
+    func presentFailureMessage(message:String) {
+        AppDelegate.alerter.showAlert(message, title: "Login Failed", presentUsing: self)
     }
 }

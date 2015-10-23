@@ -29,6 +29,7 @@
 		4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */; settings = {ASSET_TAGS = (); }; };
 		497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */; settings = {ASSET_TAGS = (); }; };
 		497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		49B94B4D1BD727C400BED7F5 /* RawUdacityServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B94B4C1BD727C400BED7F5 /* RawUdacityServices.swift */; settings = {ASSET_TAGS = (); }; };
 		49CD26E21BD5EFFB006E54DF /* FakeUserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */; settings = {ASSET_TAGS = (); }; };
 		49CD26E41BD5F37D006E54DF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E31BD5F37D006E54DF /* UserInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		49CD26E61BD5F392006E54DF /* UserInfoServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */; settings = {ASSET_TAGS = (); }; };
@@ -82,6 +83,7 @@
 		4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSessionService.swift; sourceTree = "<group>"; };
 		497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleButtonAlertMessager.swift; sourceTree = "<group>"; };
 		497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNewLocationViewController.swift; sourceTree = "<group>"; };
+		49B94B4C1BD727C400BED7F5 /* RawUdacityServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawUdacityServices.swift; sourceTree = "<group>"; };
 		49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUserInfoService.swift; sourceTree = "<group>"; };
 		49CD26E31BD5F37D006E54DF /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoServiceable.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		4976A8A31BBCBB610053C745 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				49B94B4B1BD727B300BED7F5 /* UdacityServices */,
 				4976A8A81BBCC3B10053C745 /* FakeServices */,
 				496354CA1BD4423700F41515 /* Locator.swift */,
 				4976A8A41BBCBDFB0053C745 /* LoginServiceable.swift */,
@@ -200,6 +203,14 @@
 				49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */,
 			);
 			name = FakeServices;
+			sourceTree = "<group>";
+		};
+		49B94B4B1BD727B300BED7F5 /* UdacityServices */ = {
+			isa = PBXGroup;
+			children = (
+				49B94B4C1BD727C400BED7F5 /* RawUdacityServices.swift */,
+			);
+			name = UdacityServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */,
 				497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */,
 				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
+				49B94B4D1BD727C400BED7F5 /* RawUdacityServices.swift in Sources */,
 				496354C91BD1D6D200F41515 /* NewLocationViewController.swift in Sources */,
 				497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */,
 				49CD26E61BD5F392006E54DF /* UserInfoServiceable.swift in Sources */,

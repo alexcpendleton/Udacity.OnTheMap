@@ -39,3 +39,9 @@ extension String {
         return false
     }
 }
+
+extension UIViewController {
+    func performOnMainQueue(block:()->Void){
+        NSOperationQueue.mainQueue().addOperationWithBlock(block)
+    }
+}
