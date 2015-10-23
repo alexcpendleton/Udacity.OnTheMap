@@ -9,14 +9,14 @@
 import Foundation
 
 public class UdacityApiCaller {
-    public func makeApiCall(uri:String, bodyContent:AnyObject?, method:String, completionHandler:(NSDictionary?, NSError?)->Void) {
+    public func makeApiCall(uri:String, bodyContent:AnyObject?, method:String, useParseHeaders:Bool = false, completionHandler:(NSDictionary?, NSError?)->Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: uri)!)
         let completeOnMainQueue:(NSDictionary?, NSError?)->Void = {
             let d = $0
             let e = $1
-            NSOperationQueue.mainQueue().addOperationWithBlock {
+            //NSOperationQueue.mainQueue().addOperationWithBlock {
                 completionHandler(d, e)
-            }
+            //}
         }
         let completeWithError:(NSError)->Void = {
             completeOnMainQueue(nil, $0)
@@ -24,6 +24,10 @@ public class UdacityApiCaller {
         request.HTTPMethod = method
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if useParseHeaders {
+            request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+            request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        }
         if bodyContent != nil {
             do {
                 var jsonData: NSData!

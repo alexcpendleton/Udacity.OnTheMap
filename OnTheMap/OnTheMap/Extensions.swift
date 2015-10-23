@@ -40,8 +40,8 @@ extension String {
     }
 }
 
-extension UIViewController {
-    func performOnMainQueue(block:()->Void){
-        NSOperationQueue.mainQueue().addOperationWithBlock(block)
+extension NSDictionary {
+    func getString(key:String, orValue:String = "")->String {
+        return self[key] as? String ?? ""
     }
 }

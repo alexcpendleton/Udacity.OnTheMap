@@ -24,4 +24,16 @@ public class StudentLocation : CustomStringConvertible {
     
     public var description: String { get { return firstName + " " + lastName } }
     
+    init(){}
+    init(fromDictionary:NSDictionary) {
+        objectId = fromDictionary.getString("objectId")
+        uniqueKey = fromDictionary.getString("uniqueKey")
+        firstName = fromDictionary.getString("firstName")
+        lastName = fromDictionary.getString("lastName")
+        mapString = fromDictionary.getString("mapString")
+        mediaURL = fromDictionary.getString("mediaURL")
+        latitude = fromDictionary["latitude"] as! Double
+        longitude = fromDictionary["longitude"] as! Double
+        // The rubric says to ignore dates and acl, so I did
+    }
 }

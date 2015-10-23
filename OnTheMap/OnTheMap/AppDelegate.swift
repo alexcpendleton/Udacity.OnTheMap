@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     internal static let loginService = { return collectiveUdacityServices }()
     internal static let studentLocationService:StudentLocationsServiceable = {
-        return FakeStudentLocationService()
+        return RawUdacityStudentLocationService()
     }()
     internal static let userInfoService: UserInfoServiceable = { return collectiveUdacityServices }()
     internal static var currentSession: LoginSession?
