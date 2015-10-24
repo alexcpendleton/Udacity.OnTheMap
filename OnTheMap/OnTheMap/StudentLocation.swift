@@ -36,4 +36,17 @@ public class StudentLocation : CustomStringConvertible {
         longitude = fromDictionary["longitude"] as! Double
         // The rubric says to ignore dates and acl, so I did
     }
+    
+    func toUdacityPostable()->[String : AnyObject] {
+        var results = [String:AnyObject]()
+        results["objectId"] = objectId
+        results["uniqueKey"] = uniqueKey
+        results["firstName"] = firstName
+        results["lastName"] = lastName
+        results["mapString"] = mapString
+        results["mediaURL"] = mediaURL
+        results["latitude"] = latitude
+        results["longitude"] = longitude
+        return results
+    }
 }

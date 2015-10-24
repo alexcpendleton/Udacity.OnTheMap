@@ -19,7 +19,13 @@ public class MapNewLocationViewController : UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     var chosenLocation: CLPlacemark!
+    var chosenMapString: String!
     var userInfo: UserInfo!
+    
+    // Makes this injectable but defaults to current session variable value
+    internal var userKey = {
+        return AppDelegate.currentSession!.account.key
+    }()
     
     internal var studentLocationService = {
         return AppDelegate.studentLocationService
@@ -62,10 +68,13 @@ public class MapNewLocationViewController : UIViewController {
             filled.latitude  = coordinate.latitude
             filled.longitude = coordinate.longitude
             filled.mediaURL = mediaUrl
+            filled.mapString = chosenMapString
+            filled.uniqueKey = userKey
             
             studentLocationService.create(filled, completionHandler: { (created, error) -> Void in
                 if error != nil {
                     self.displayErrorMessage("Sorry, there was a problem submitting your location.")
+                    print(error)
                 } else {
                     self.proceed()
                 }

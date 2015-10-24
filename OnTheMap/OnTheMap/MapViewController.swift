@@ -15,9 +15,11 @@ public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDe
     
     public override func viewWillAppear(animated: Bool) {
         map?.delegate = self
-        refresh()
-        addAnnotations()
         super.viewWillAppear(animated)
+    }
+    
+    public override func currentLocationsUpdated() {
+        addAnnotations()
     }
 
     func addAnnotations() {

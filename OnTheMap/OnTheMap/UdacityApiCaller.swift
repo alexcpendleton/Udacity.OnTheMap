@@ -9,24 +9,28 @@
 import Foundation
 
 public class UdacityApiCaller {
-    public func makeApiCall(uri:String, bodyContent:AnyObject?, method:String, useParseHeaders:Bool = false, completionHandler:(NSDictionary?, NSError?)->Void) {
+    public func makeApiCall(uri:String, bodyContent:AnyObject?,
+        method:String, useParseHeaders:Bool = false,
+        completionHandler:(NSDictionary?, NSError?)->Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: uri)!)
         let completeOnMainQueue:(NSDictionary?, NSError?)->Void = {
             let d = $0
             let e = $1
-            //NSOperationQueue.mainQueue().addOperationWithBlock {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
                 completionHandler(d, e)
-            //}
+            }
         }
         let completeWithError:(NSError)->Void = {
             completeOnMainQueue(nil, $0)
         }
+        var weirdSecurityBufferLength = 5
         request.HTTPMethod = method
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         if useParseHeaders {
             request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
             request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+            weirdSecurityBufferLength = 0
         }
         if bodyContent != nil {
             do {
@@ -44,9 +48,10 @@ public class UdacityApiCaller {
             if error != nil { // Handle error…
                 completeWithError(error!)
             } else {
-                let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
+                let newData = data!.subdataWithRange(NSMakeRange(weirdSecurityBufferLength, data!.length - weirdSecurityBufferLength)) /* subset response data! */
                 print(NSString(data: newData, encoding: NSUTF8StringEncoding))
-                if (httpResponse.statusCode == 200) {
+                // All 200s are OK! (Submitting locations returns a 201, for instance)
+                if (200...299 ~= httpResponse.statusCode) {
                     do {
                         let results = try NSJSONSerialization.JSONObjectWithData(newData, options: []) as! NSDictionary
                         //print(results)

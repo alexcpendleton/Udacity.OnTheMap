@@ -15,12 +15,12 @@ public class FakeStudentLocationService : StudentLocationsServiceable {
         allLocations = self.makeFakeData(10)
     }
     
-    public func getLatest100() -> [StudentLocation] {
-        return get(100, skip: nil, order: nil)
+    public func getLatest100(completionHandler:([StudentLocation]?, NSError?)->Void) {
+        return get(100, skip: nil, order: nil, completionHandler: completionHandler)
     }
     
-    public func get(limit: Int?, skip: Int?, order: String?) -> [StudentLocation] {
-        return allLocations
+    public func get(limit: Int?, skip: Int?, order: String?, completionHandler:([StudentLocation]?, NSError?)->Void) {
+        return completionHandler(allLocations, nil)
     }
     
     public func create(location: StudentLocation, completionHandler:(StudentLocation?, NSError?)->Void) {

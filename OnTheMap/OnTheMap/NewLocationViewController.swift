@@ -41,7 +41,7 @@ public class NewLocationViewController : UIViewController {
                         // but it's covered for paranoia's sake
                         self.displayErrorMessage(self.nothingFoundMessage)
                     } else {
-                        self.proceed(placemark!)
+                        self.proceed(placemark!, address: address)
                     }
                 }
             }
@@ -62,7 +62,7 @@ public class NewLocationViewController : UIViewController {
         print(error.description)
     }
     
-    func proceed(placemark:[CLPlacemark]) {
+    func proceed(placemark:[CLPlacemark], address: String) {
         print("geocoded successfully")
         
         /* 
@@ -80,6 +80,7 @@ public class NewLocationViewController : UIViewController {
         // For the sake of simplicity we'll take the first placemark and
         // hopefully that's good enough
         toPresent.chosenLocation = placemark.first!
+        toPresent.chosenMapString = address
 
         navigationController?.pushViewController(toPresent, animated: true)
         //self.presentViewController(toPresent, animated: true, completion: nil)

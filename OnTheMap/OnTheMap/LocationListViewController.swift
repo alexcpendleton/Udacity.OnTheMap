@@ -14,16 +14,16 @@ public class LocationListViewController : StudentLocationsViewControllerBase, UI
     
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableView.delegate = self
+        tableView.dataSource = self
         //http://stackoverflow.com/a/15010646/21201
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
-        
     }
     
-    override public func refresh() {
-        super.refresh()
+    public override func currentLocationsUpdated() {
+        tableView.reloadData()
     }
     
     public func refresh(refreshControl: UIRefreshControl) {

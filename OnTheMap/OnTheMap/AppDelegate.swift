@@ -15,11 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal static let collectiveUdacityServices = {
         return RawUdacityServices()
     }()
-    internal static let loginService = { return collectiveUdacityServices }()
+    internal static let loginService: LoginServiceable = {
+        return FakeSessionService()
+        return collectiveUdacityServices
+    }()
     internal static let studentLocationService:StudentLocationsServiceable = {
+        //return FakeStudentLocationService()
         return RawUdacityStudentLocationService()
     }()
-    internal static let userInfoService: UserInfoServiceable = { return collectiveUdacityServices }()
+    internal static let userInfoService: UserInfoServiceable = {
+        return FakeUserInfoService()
+        return collectiveUdacityServices
+    }()
     internal static var currentSession: LoginSession?
     internal static var currentUser: UserInfo?
     internal static var alerter = SingleButtonAlertMessager()

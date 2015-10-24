@@ -19,7 +19,7 @@ public class StudentLocationsViewControllerBase : UIViewController {
     @IBOutlet weak var logoutButton: UIBarButtonItem?
     
     override public func viewWillAppear(animated: Bool) {
-        currentLocations = queryLocations()
+        refresh()
         tabBarController?.tabBar.hidden = false
         super.viewWillAppear(animated)
     }
@@ -54,11 +54,29 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     public func refresh() {
-        currentLocations = queryLocations()
+        updateCurrentLocationsIfPossible()
+    }
+    public func currentLocationsUpdated() {
+        
+    }
+    public func updateCurrentLocationsIfPossible() {
+        queryLocations { (locations, error) -> Void in
+            if locations != nil {
+                self.currentLocations = locations!
+            }
+            // Silently fail on errors for now, per the direction of
+            // the iOS networking instructor.
+            // The next course supposedly will give guidance on
+            // more friendly networking error issues
+            
+            // Signal to inheritors that the locations have changed
+            // Maybe this should be done via 'hasChanged'?
+            self.currentLocationsUpdated()
+        }
     }
     
-    public func queryLocations() -> [StudentLocation] {
-        return locationService.getLatest100()
+    public func queryLocations(completionHandler: ([StudentLocation]?, NSError?)->Void) {
+        locationService.getLatest100(completionHandler)
     }
     
     public func instantiateAndPresentNewLocationView() {

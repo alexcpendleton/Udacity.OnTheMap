@@ -9,7 +9,7 @@
 import Foundation
 
 public class FakeSessionService : LoginServiceable {
-    public var shouldImitateSuccess = false
+    public var shouldImitateSuccess = true
     public func attemptToLogin(credentials: (username: String, password: String), completionHandler: (LoginResults?, NSError?) -> Void) {
         if shouldImitateSuccess {
             let session = LoginSession()
