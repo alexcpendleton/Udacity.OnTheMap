@@ -14,6 +14,7 @@ public class LoginViewController : UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var signUp: AnyObject!
     
     let loginService = { AppDelegate.loginService }()
     let userInfoService = { AppDelegate.userInfoService }()
@@ -27,6 +28,14 @@ public class LoginViewController : UIViewController {
     
     @IBAction func loginOnTouchUpInside() {
         attemptLogin()
+    }
+    
+    @IBAction func signUpTouchUpInside() {
+        openSignUpLink()
+    }
+    
+    func openSignUpLink() {
+        "https://www.udacity.com/account/auth#!/signup".openUrl()
     }
     
     func attemptLogin() {
