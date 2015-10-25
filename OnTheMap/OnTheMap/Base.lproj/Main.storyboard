@@ -59,18 +59,27 @@
                                             <action selector="loginOnTouchUpInside" destination="BYZ-38-t0r" eventType="touchUpInside" id="vim-Ff-OZS"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="xXd-um-2wU">
+                                        <rect key="frame" x="110" y="81" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="CRl-zm-lS8"/>
+                                            <constraint firstAttribute="width" constant="20" id="zn4-xg-3uu"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="GwS-2h-155" firstAttribute="top" secondItem="lOt-Xp-22Z" secondAttribute="bottom" constant="8" id="3VI-lP-3VI"/>
                                     <constraint firstItem="GwS-2h-155" firstAttribute="leading" secondItem="lOt-Xp-22Z" secondAttribute="leading" id="7R3-FC-u3U"/>
                                     <constraint firstItem="e5C-eI-Tzx" firstAttribute="top" secondItem="GwS-2h-155" secondAttribute="bottom" constant="8" id="EpN-FM-qYL"/>
                                     <constraint firstItem="lOt-Xp-22Z" firstAttribute="top" secondItem="xeh-XK-zTN" secondAttribute="top" id="FBg-40-e60"/>
+                                    <constraint firstItem="xXd-um-2wU" firstAttribute="centerX" secondItem="e5C-eI-Tzx" secondAttribute="centerX" id="FHr-eh-ykG"/>
                                     <constraint firstItem="GwS-2h-155" firstAttribute="top" secondItem="lOt-Xp-22Z" secondAttribute="bottom" constant="8" symbolic="YES" id="Ihq-ub-vIO"/>
                                     <constraint firstAttribute="trailing" secondItem="lOt-Xp-22Z" secondAttribute="trailing" id="KFp-ZY-GFy"/>
                                     <constraint firstItem="lOt-Xp-22Z" firstAttribute="centerX" secondItem="GwS-2h-155" secondAttribute="centerX" id="M3v-3d-Cq6"/>
                                     <constraint firstItem="lOt-Xp-22Z" firstAttribute="leading" secondItem="xeh-XK-zTN" secondAttribute="leading" id="Xrn-BH-nNN"/>
                                     <constraint firstItem="lOt-Xp-22Z" firstAttribute="top" secondItem="xeh-XK-zTN" secondAttribute="top" id="gF6-FZ-Uls"/>
                                     <constraint firstItem="e5C-eI-Tzx" firstAttribute="centerX" secondItem="GwS-2h-155" secondAttribute="centerX" id="iom-CZ-TM9"/>
+                                    <constraint firstItem="xXd-um-2wU" firstAttribute="centerY" secondItem="e5C-eI-Tzx" secondAttribute="centerY" id="j10-RT-NHQ"/>
                                     <constraint firstItem="lOt-Xp-22Z" firstAttribute="top" secondItem="xeh-XK-zTN" secondAttribute="top" id="lgs-9a-EaE"/>
                                     <constraint firstItem="lOt-Xp-22Z" firstAttribute="top" secondItem="xeh-XK-zTN" secondAttribute="top" id="q3P-2j-Nz2"/>
                                     <constraint firstAttribute="width" constant="240" id="vLo-pV-CPn"/>
@@ -90,6 +99,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginActivityIndicator" destination="xXd-um-2wU" id="pMd-QP-vAM"/>
+                        <outlet property="loginButton" destination="e5C-eI-Tzx" id="OcV-yz-G5e"/>
                         <outlet property="passwordField" destination="GwS-2h-155" id="j4c-Ke-SDt"/>
                         <outlet property="usernameField" destination="lOt-Xp-22Z" id="ENo-d6-hZ9"/>
                         <segue destination="9cg-1J-R2y" kind="show" identifier="AfterLoginSegue" id="2cp-Oc-A4s"/>

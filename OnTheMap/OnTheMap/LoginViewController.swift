@@ -10,19 +10,24 @@ import Foundation
 import UIKit
 
 public class LoginViewController : UIViewController {
-    public override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     
     let loginService = { AppDelegate.loginService }()
     let userInfoService = { AppDelegate.userInfoService }()
     
+    public override func viewWillAppear(animated: Bool) {
+        // Hide the "Login" text on the button as we will show 
+        // an activity indicator instead
+        loginButton.setTitle("", forState: UIControlState.Disabled)
+        super.viewWillAppear(animated)
+    }
+    
     @IBAction func loginOnTouchUpInside() {
         attemptLogin()
     }
-    
-    @IBOutlet weak var usernameField:UITextField!
-    @IBOutlet weak var passwordField:UITextField!
     
     func attemptLogin() {
         if usernameField.text!.isEmpty {
@@ -33,18 +38,27 @@ public class LoginViewController : UIViewController {
             presentFailureMessage("Please enter your password.")
             return
         }
-        
-        
         let credentials = (username:usernameField.text!, password:passwordField.text!)
+        applyLoginCallStartingStyles()
         loginService.attemptToLogin(credentials) { (results, error) -> Void in
+            self.applyLoginCallFinishedStyles()
             let successful = results != nil && results!.successful
             if successful {
                 self.onSuccessfulLogin(results!.session!)
             } else {
                 self.onFailedLogin(error!)
             }
-            
         }
+    }
+    
+    func applyLoginCallStartingStyles() {
+        loginButton.enabled = false
+        loginActivityIndicator.startAnimating()
+    }
+    
+    func applyLoginCallFinishedStyles() {
+        loginButton.enabled = true
+        loginActivityIndicator.stopAnimating()
     }
     
     func onSuccessfulLogin(session: LoginSession) {
