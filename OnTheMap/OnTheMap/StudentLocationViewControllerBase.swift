@@ -17,8 +17,10 @@ public class StudentLocationsViewControllerBase : UIViewController {
     @IBOutlet weak var refreshButton: UIBarButtonItem?
     @IBOutlet weak var newPinButton: UIBarButtonItem?
     @IBOutlet weak var logoutButton: UIBarButtonItem?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     override public func viewWillAppear(animated: Bool) {
+        activityIndicator?.color = self.view.tintColor
         refresh()
         tabBarController?.tabBar.hidden = false
         super.viewWillAppear(animated)
@@ -56,27 +58,42 @@ public class StudentLocationsViewControllerBase : UIViewController {
     public func refresh() {
         updateCurrentLocationsIfPossible()
     }
+    
     public func currentLocationsUpdated() {
         
     }
+    
+    public func locationsGetFailed(error:NSError) {
+        AppDelegate.alerter.showAlert("Sorry, we were unable to fetch the latest locations!", title: "Locations Error", presentUsing: self)
+    }
+    
     public func updateCurrentLocationsIfPossible() {
         queryLocations { (locations, error) -> Void in
-            if locations != nil {
+            if error == nil {
                 self.currentLocations = locations!
+                // Signal to inheritors that the locations have changed
+                // Maybe this should be done via 'hasChanged'?
+                self.currentLocationsUpdated()
+            } else {
+                self.locationsGetFailed(error!)
             }
-            // Silently fail on errors for now, per the direction of
-            // the iOS networking instructor.
-            // The next course supposedly will give guidance on
-            // more friendly networking error issues
-            
-            // Signal to inheritors that the locations have changed
-            // Maybe this should be done via 'hasChanged'?
-            self.currentLocationsUpdated()
         }
     }
     
+    public func applyQueryingStyles() {
+        activityIndicator?.startAnimating()
+    }
+    
+    public func applyQueryFinishedStyles() {
+        activityIndicator?.stopAnimating()
+    }
+    
     public func queryLocations(completionHandler: ([StudentLocation]?, NSError?)->Void) {
-        locationService.getLatest100(completionHandler)
+        applyQueryingStyles()
+        locationService.getLatest100 {
+            self.applyQueryFinishedStyles()
+            completionHandler($0, $1)
+        }
     }
     
     public func instantiateAndPresentNewLocationView() {

@@ -168,9 +168,18 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gPm-kw-pDe">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="guE-Gb-5rt">
+                                <rect key="frame" x="282" y="281.5" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="WJY-Kr-Aml"/>
+                                    <constraint firstAttribute="height" constant="37" id="fdx-M4-R39"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="guE-Gb-5rt" firstAttribute="centerY" secondItem="05E-Cw-Yg8" secondAttribute="centerY" id="2cR-La-Jyw"/>
+                            <constraint firstItem="guE-Gb-5rt" firstAttribute="centerX" secondItem="05E-Cw-Yg8" secondAttribute="centerX" id="Dbt-qB-Non"/>
                             <constraint firstAttribute="trailing" secondItem="gPm-kw-pDe" secondAttribute="trailing" id="beV-dh-CSp"/>
                             <constraint firstItem="gPm-kw-pDe" firstAttribute="leading" secondItem="05E-Cw-Yg8" secondAttribute="leading" id="jCw-st-ZZI"/>
                             <constraint firstItem="gPm-kw-pDe" firstAttribute="top" secondItem="fNn-cS-7Dv" secondAttribute="bottom" id="lpe-ZT-Pfs"/>
@@ -197,6 +206,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="guE-Gb-5rt" id="xQa-U4-G4Y"/>
                         <outlet property="logoutButton" destination="MVo-jd-81Q" id="yxM-b2-NeU"/>
                         <outlet property="map" destination="gPm-kw-pDe" id="cgQ-yM-3B9"/>
                         <outlet property="newPinButton" destination="vsc-CV-tKK" id="3pa-JM-c3w"/>
@@ -474,6 +484,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bou-KA-83x">
+                                <rect key="frame" x="283" y="280" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="DNH-J2-GCG"/>
+                                    <constraint firstAttribute="height" constant="37" id="Qwu-3R-2yc"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -481,6 +498,8 @@
                             <constraint firstItem="DkZ-Ub-8HY" firstAttribute="top" secondItem="8wi-to-kfL" secondAttribute="bottom" id="T6e-bG-pgQ"/>
                             <constraint firstAttribute="trailing" secondItem="DkZ-Ub-8HY" secondAttribute="trailing" id="XnC-lm-wiN"/>
                             <constraint firstItem="DkZ-Ub-8HY" firstAttribute="leading" secondItem="tBt-R9-KRq" secondAttribute="leading" id="Zpv-9y-Syn"/>
+                            <constraint firstItem="bou-KA-83x" firstAttribute="centerX" secondItem="tBt-R9-KRq" secondAttribute="centerX" constant="1" id="gO2-yd-esU"/>
+                            <constraint firstItem="bou-KA-83x" firstAttribute="centerY" secondItem="tBt-R9-KRq" secondAttribute="centerY" constant="-1" id="j2m-4L-FfT"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -505,6 +524,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="bou-KA-83x" id="qRR-aE-xox"/>
                         <outlet property="logoutButton" destination="ZkH-Ty-a36" id="Ko8-3J-7v6"/>
                         <outlet property="newPinButton" destination="hcN-BX-BIt" id="Uea-oO-AHr"/>
                         <outlet property="refreshButton" destination="70a-SE-59S" id="ZFo-Ol-Yy7"/>

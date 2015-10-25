@@ -10,6 +10,8 @@ import Foundation
 
 public class FakeStudentLocationService : StudentLocationsServiceable {
     var allLocations: [StudentLocation]!
+    var simulatedGetDelay: Double = 1.5
+    var simulatedCreateDelay: Double = 1.0
     
     public init() {
         allLocations = self.makeFakeData(10)
@@ -20,12 +22,12 @@ public class FakeStudentLocationService : StudentLocationsServiceable {
     }
     
     public func get(limit: Int?, skip: Int?, order: String?, completionHandler:([StudentLocation]?, NSError?)->Void) {
-        return completionHandler(allLocations, nil)
+        simulatedGetDelay.delay { completionHandler(self.allLocations, nil) }
     }
     
     public func create(location: StudentLocation, completionHandler:(StudentLocation?, NSError?)->Void) {
         allLocations.append(location)
-        completionHandler(location, nil)
+        simulatedCreateDelay.delay { completionHandler(location, nil) }
     }
     
     public func makeFakeData(count:Int) -> [StudentLocation] {

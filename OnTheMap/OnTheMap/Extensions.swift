@@ -51,3 +51,14 @@ extension NSDictionary {
         return self[key] as? String ?? ""
     }
 }
+
+extension Double {
+    func delay(closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(self * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+}

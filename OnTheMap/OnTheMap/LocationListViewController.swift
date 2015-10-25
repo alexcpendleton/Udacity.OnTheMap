@@ -11,24 +11,30 @@ import UIKit
 
 public class LocationListViewController : StudentLocationsViewControllerBase, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    
+    var refreshControl = UIRefreshControl()
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.delegate = self
         tableView.dataSource = self
         //http://stackoverflow.com/a/15010646/21201
-        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
     }
+    
     
     public override func currentLocationsUpdated() {
         tableView.reloadData()
     }
     
     public func refresh(refreshControl: UIRefreshControl) {
+        // When we're doing the pull-down refresh we want to hide
+        // the default activity indicator on the ViewController and
+        // just display the refreshControl's.
+        let tempHolder = activityIndicator
+        activityIndicator = nil
         refresh()
         refreshControl.endRefreshing()
+        activityIndicator = tempHolder
     }
     
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int {

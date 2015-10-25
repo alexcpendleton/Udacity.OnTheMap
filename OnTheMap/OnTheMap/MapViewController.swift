@@ -19,9 +19,14 @@ public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDe
     }
     
     public override func currentLocationsUpdated() {
+        removeAnnotations()
         addAnnotations()
     }
 
+    func removeAnnotations() {
+        // http://stackoverflow.com/a/10867625/21201
+        map!.removeAnnotations(map!.annotations.filter { $0 !== map!.userLocation })
+    }
     func addAnnotations() {
         map?.addAnnotations(currentLocations.map({ makeAnnotation($0) }))
     }

@@ -62,7 +62,7 @@ public class MapNewLocationViewController : UIViewController {
         let isValid = validateBeforeSubmit()
         if isValid {
             let coordinate = getChosenCoordinate()
-            let filled = StudentLocation()
+            var filled = StudentLocation()
             filled.firstName = userInfo.first_name
             filled.lastName = userInfo.last_name
             filled.latitude  = coordinate.latitude

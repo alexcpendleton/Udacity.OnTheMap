@@ -19,7 +19,13 @@ public class LoginViewController : UIViewController {
     let loginService = { AppDelegate.loginService }()
     let userInfoService = { AppDelegate.userInfoService }()
     
+    var useTestingDefaults = { AppDelegate.useTestingDefaults }()
+    
     public override func viewWillAppear(animated: Bool) {
+        if useTestingDefaults {
+            usernameField.text = "fakertonmcnotreal@mailinator.com"
+            passwordField.text = "nope"
+        }
         // Hide the "Login" text on the button as we will show 
         // an activity indicator instead
         loginButton.setTitle("", forState: UIControlState.Disabled)
@@ -50,13 +56,13 @@ public class LoginViewController : UIViewController {
         let credentials = (username:usernameField.text!, password:passwordField.text!)
         applyLoginCallStartingStyles()
         loginService.attemptToLogin(credentials) { (results, error) -> Void in
-            self.applyLoginCallFinishedStyles()
             let successful = results != nil && results!.successful
             if successful {
                 self.onSuccessfulLogin(results!.session!)
             } else {
                 self.onFailedLogin(error!)
             }
+            self.applyLoginCallFinishedStyles()
         }
     }
     
