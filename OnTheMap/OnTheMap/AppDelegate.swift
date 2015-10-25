@@ -5,6 +5,7 @@
 //  Created by Alex Pendleton on 9/30/15.
 //  Copyright © 2015 Alex Pendleton. All rights reserved.
 //
+// Non-Udacity-supplied icons come from: https://icons8.com/
 
 import UIKit
 import CoreData

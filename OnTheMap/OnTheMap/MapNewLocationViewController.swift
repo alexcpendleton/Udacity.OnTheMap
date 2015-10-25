@@ -18,6 +18,7 @@ public class MapNewLocationViewController : UIViewController {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var previewButton: UIButton!
     
     var chosenLocation: CLPlacemark!
     var chosenMapString: String!
@@ -30,7 +31,31 @@ public class MapNewLocationViewController : UIViewController {
     
     internal var studentLocationService = {
         return AppDelegate.studentLocationService
-        }()
+    }()
+    
+    public override func viewWillAppear(animated: Bool) {
+        // Show the back button on this one, so the user
+        // can re-enter a location if desired. Cancel
+        // will quit out entirely.
+        navigationItem.hidesBackButton = false
+        let iconTintColor = self.view.tintColor
+        previewButton.tintColor = iconTintColor
+        activityIndicator.color = iconTintColor
+        
+        submitButton.setTitle("", forState: UIControlState.Disabled)
+        
+        if userInfo == nil {
+            userInfo = AppDelegate.currentUser!
+        }
+        
+        if !userInfo.website_url.isEmpty {
+            mediaUrlField.text = userInfo.website_url
+        }
+        
+        displayLocation()
+        
+        super.viewWillAppear(animated)
+    }
     
     @IBAction func submitPressed(sender:UIButton?) {
         attemptToProceed()
@@ -127,24 +152,11 @@ public class MapNewLocationViewController : UIViewController {
         map.addAnnotation(result)
     }
     
-    public override func viewWillAppear(animated: Bool) {
-        // Show the back button on this one, so the user
-        // can re-enter a location if desired. Cancel
-        // will quit out entirely.
-        navigationItem.hidesBackButton = false
-        activityIndicator.color = self.view.tintColor
-        submitButton.setTitle("", forState: UIControlState.Disabled)
-        
-        if userInfo == nil {
-            userInfo = AppDelegate.currentUser!
-        }
-        
-        if !userInfo.website_url.isEmpty {
-            mediaUrlField.text = userInfo.website_url
-        }
-        
-        displayLocation()
-        
-        super.viewWillAppear(animated)
+    @IBAction func previewButtonPressed() {
+        preview(mediaUrlField.text!)
+    }
+    
+    func preview(uri:String) {
+        uri.openUrl()
     }
 }

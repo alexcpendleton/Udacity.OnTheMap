@@ -395,15 +395,46 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjA-9x-qnD" userLabel="Preview Button">
+                                        <rect key="frame" x="567" y="25.5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Cpc-vI-yER"/>
+                                            <constraint firstAttribute="width" constant="25" id="EjB-XZ-GWk"/>
+                                            <constraint firstAttribute="height" constant="25" id="Ji8-ad-GSI"/>
+                                            <constraint firstAttribute="height" constant="20" id="fOH-Pf-3k0"/>
+                                        </constraints>
+                                        <state key="normal" image="external-link"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="EjB-XZ-GWk"/>
+                                                <exclude reference="Ji8-ad-GSI"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="previewButtonPressed" destination="tqF-O1-NeO" eventType="touchUpInside" id="FLf-4b-SCg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="AjA-9x-qnD" secondAttribute="trailing" constant="13" id="56s-D5-x75"/>
+                                    <constraint firstAttribute="bottom" secondItem="AjA-9x-qnD" secondAttribute="bottom" constant="28" id="BHm-Ts-UMR"/>
                                     <constraint firstItem="fbh-fN-b4Z" firstAttribute="centerX" secondItem="G5f-qr-QJh" secondAttribute="centerX" id="DfK-YQ-gat"/>
                                     <constraint firstItem="fbh-fN-b4Z" firstAttribute="leading" secondItem="G5f-qr-QJh" secondAttribute="leading" constant="8" id="E8B-0Z-aqO"/>
+                                    <constraint firstItem="AjA-9x-qnD" firstAttribute="top" secondItem="G5f-qr-QJh" secondAttribute="top" constant="19" id="Mz3-3F-07b"/>
+                                    <constraint firstItem="AjA-9x-qnD" firstAttribute="centerY" secondItem="fbh-fN-b4Z" secondAttribute="centerY" id="RGM-pP-e5T"/>
                                     <constraint firstItem="fbh-fN-b4Z" firstAttribute="centerY" secondItem="G5f-qr-QJh" secondAttribute="centerY" id="Zsy-i4-KkM"/>
                                     <constraint firstAttribute="height" constant="72" id="e6C-tt-2tm"/>
                                     <constraint firstAttribute="width" constant="600" id="h84-ta-9vb"/>
+                                    <constraint firstAttribute="trailing" secondItem="AjA-9x-qnD" secondAttribute="trailing" constant="21" id="nmh-ZA-eLS"/>
                                     <constraint firstAttribute="trailing" secondItem="fbh-fN-b4Z" secondAttribute="trailing" constant="8" id="r28-RB-4d0"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BHm-Ts-UMR"/>
+                                        <exclude reference="Mz3-3F-07b"/>
+                                        <exclude reference="nmh-ZA-eLS"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31s-Lr-j93" userLabel="Button Container">
                                 <rect key="frame" x="0.0" y="528" width="600" height="72"/>
@@ -471,6 +502,7 @@
                         <outlet property="cancelButton" destination="xDQ-ek-taj" id="wBQ-oZ-zyp"/>
                         <outlet property="map" destination="5iU-pI-epj" id="yzG-A0-jkJ"/>
                         <outlet property="mediaUrlField" destination="fbh-fN-b4Z" id="fEI-X5-DwG"/>
+                        <outlet property="previewButton" destination="AjA-9x-qnD" id="vWv-b8-0L1"/>
                         <outlet property="submitButton" destination="V3A-z6-KF2" id="GOP-d8-dTc"/>
                     </connections>
                 </viewController>
@@ -631,6 +663,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="external-link" width="33" height="33"/>
         <image name="list" width="32" height="32"/>
         <image name="pin" width="32" height="32"/>
         <image name="udacity" width="256" height="256"/>

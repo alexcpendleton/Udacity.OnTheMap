@@ -5,13 +5,14 @@
 //  Created by Alex Pendleton on 10/5/15.
 //  Copyright © 2015 Alex Pendleton. All rights reserved.
 //
+// Non-Udacity-supplied icons come from: https://icons8.com/
+
 import Foundation
 import UIKit
 import MapKit
 
-
 public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDelegate {
-    @IBOutlet weak var map: MKMapView?
+    @IBOutlet weak var map: MKMapView!
     
     public override func viewWillAppear(animated: Bool) {
         map?.delegate = self
