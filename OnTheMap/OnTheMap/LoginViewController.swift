@@ -41,7 +41,7 @@ public class LoginViewController : UIViewController {
             if successful {
                 self.onSuccessfulLogin(results!.session!)
             } else {
-                self.onFailedLogin(error)
+                self.onFailedLogin(error!)
             }
             
         }
@@ -54,7 +54,7 @@ public class LoginViewController : UIViewController {
                 AppDelegate.currentSession = session
                 self.proceed()
             } else {
-                self.presentFailure(error)
+                self.presentFailure(error!)
             }
         })
     }
@@ -70,16 +70,21 @@ public class LoginViewController : UIViewController {
         
     }
     
-    func onFailedLogin(error: NSError?) {
+    func onFailedLogin(error: NSError) {
         presentFailure(error)
     }
     
-    func presentFailure(error: NSError?) {
+    func presentFailure(error: NSError) {
         var message = "Sorry, we couldn't log you in. Please check your credentials and try again."
-        let httpResponse = error?.userInfo["httpResponse"] as? NSHTTPURLResponse
-        if httpResponse != nil {
-            if [400, 403].contains(httpResponse!.statusCode) {
-                message = "Sorry, that account was not found or your credentials were invalid."
+        
+        if error.isNetworkError() {
+            message = "Sorry, we seem to be having trouble connecting to the login server."
+        } else {
+            let httpResponse = error.userInfo["httpResponse"] as? NSHTTPURLResponse
+            if httpResponse != nil {
+                if [400, 403].contains(httpResponse!.statusCode) {
+                    message = "Sorry, that account was not found or your credentials were invalid."
+                }
             }
         }
         presentFailureMessage(message)

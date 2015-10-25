@@ -40,6 +40,12 @@ extension String {
     }
 }
 
+extension NSError {
+    func isNetworkError()->Bool {
+        return self.domain == NSURLErrorDomain
+    }
+}
+
 extension NSDictionary {
     func getString(key:String, orValue:String = "")->String {
         return self[key] as? String ?? ""

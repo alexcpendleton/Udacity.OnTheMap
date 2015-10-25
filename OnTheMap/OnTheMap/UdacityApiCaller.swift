@@ -11,6 +11,7 @@ import Foundation
 public class UdacityApiCaller {
     public func makeApiCall(uri:String, bodyContent:AnyObject?,
         method:String, useParseHeaders:Bool = false,
+        timeoutIntervalInSeconds:Double = 5.0,
         completionHandler:(NSDictionary?, NSError?)->Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: uri)!)
         let completeOnMainQueue:(NSDictionary?, NSError?)->Void = {
@@ -21,12 +22,16 @@ public class UdacityApiCaller {
             }
         }
         let completeWithError:(NSError)->Void = {
+            print("completing with error:")
+            print($0)
             completeOnMainQueue(nil, $0)
         }
         var weirdSecurityBufferLength = 5
         request.HTTPMethod = method
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = timeoutIntervalInSeconds
+            
         if useParseHeaders {
             request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
             request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -44,10 +49,10 @@ public class UdacityApiCaller {
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
-            let httpResponse = response as! NSHTTPURLResponse
             if error != nil { // Handle error…
                 completeWithError(error!)
             } else {
+                let httpResponse = response as! NSHTTPURLResponse
                 let newData = data!.subdataWithRange(NSMakeRange(weirdSecurityBufferLength, data!.length - weirdSecurityBufferLength)) /* subset response data! */
                 print(NSString(data: newData, encoding: NSUTF8StringEncoding))
                 // All 200s are OK! (Submitting locations returns a 201, for instance)
