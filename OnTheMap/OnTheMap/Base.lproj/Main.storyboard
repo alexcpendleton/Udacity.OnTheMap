@@ -396,7 +396,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="URL" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjA-9x-qnD" userLabel="Preview Button">
-                                        <rect key="frame" x="567" y="25.5" width="20" height="20"/>
+                                        <rect key="frame" x="567" y="26" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Cpc-vI-yER"/>
                                             <constraint firstAttribute="width" constant="25" id="EjB-XZ-GWk"/>
@@ -440,7 +440,7 @@
                                 <rect key="frame" x="0.0" y="528" width="600" height="72"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-z6-KF2" userLabel="Submit Button">
-                                        <rect key="frame" x="185" y="14" width="230" height="44"/>
+                                        <rect key="frame" x="185" y="-7" width="230" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="O7B-09-4Dq"/>
@@ -459,7 +459,7 @@
                                         </connections>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GuN-3X-6Vf">
-                                        <rect key="frame" x="282" y="17" width="37" height="37"/>
+                                        <rect key="frame" x="282" y="-3.5" width="37" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="3n0-bS-yTq"/>
                                             <constraint firstAttribute="width" constant="37" id="GpW-ZE-ozt"/>
@@ -468,12 +468,22 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="V3A-z6-KF2" firstAttribute="centerX" secondItem="31s-Lr-j93" secondAttribute="centerX" id="1L1-Hu-Tax"/>
+                                    <constraint firstItem="GuN-3X-6Vf" firstAttribute="centerY" secondItem="31s-Lr-j93" secondAttribute="centerY" constant="-18" id="8wr-CR-k1e"/>
                                     <constraint firstItem="V3A-z6-KF2" firstAttribute="centerY" secondItem="31s-Lr-j93" secondAttribute="centerY" id="FS0-96-RZs"/>
                                     <constraint firstAttribute="width" constant="600" id="Gcu-0R-ydX"/>
-                                    <constraint firstItem="GuN-3X-6Vf" firstAttribute="centerX" secondItem="31s-Lr-j93" secondAttribute="centerX" id="RJp-LJ-NR7"/>
-                                    <constraint firstItem="GuN-3X-6Vf" firstAttribute="centerY" secondItem="31s-Lr-j93" secondAttribute="centerY" id="b7N-Kg-A3O"/>
+                                    <constraint firstAttribute="bottom" secondItem="V3A-z6-KF2" secondAttribute="bottom" constant="35" id="V4L-3p-cOW"/>
+                                    <constraint firstItem="GuN-3X-6Vf" firstAttribute="centerY" secondItem="V3A-z6-KF2" secondAttribute="centerY" id="hsj-x5-fCV"/>
+                                    <constraint firstItem="GuN-3X-6Vf" firstAttribute="centerX" secondItem="V3A-z6-KF2" secondAttribute="centerX" id="kfZ-aX-BL0"/>
+                                    <constraint firstItem="V3A-z6-KF2" firstAttribute="top" secondItem="31s-Lr-j93" secondAttribute="top" constant="-7" id="llm-bq-09S"/>
                                     <constraint firstAttribute="height" constant="72" id="mtb-Yu-YRw"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FS0-96-RZs"/>
+                                        <exclude reference="V4L-3p-cOW"/>
+                                        <exclude reference="8wr-CR-k1e"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
