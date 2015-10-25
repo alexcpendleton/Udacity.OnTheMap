@@ -427,11 +427,20 @@
                                             <action selector="submitPressed:" destination="tqF-O1-NeO" eventType="touchUpInside" id="EUr-bZ-ZVM"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GuN-3X-6Vf">
+                                        <rect key="frame" x="282" y="17" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="3n0-bS-yTq"/>
+                                            <constraint firstAttribute="width" constant="37" id="GpW-ZE-ozt"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="V3A-z6-KF2" firstAttribute="centerX" secondItem="31s-Lr-j93" secondAttribute="centerX" id="1L1-Hu-Tax"/>
                                     <constraint firstItem="V3A-z6-KF2" firstAttribute="centerY" secondItem="31s-Lr-j93" secondAttribute="centerY" id="FS0-96-RZs"/>
                                     <constraint firstAttribute="width" constant="600" id="Gcu-0R-ydX"/>
+                                    <constraint firstItem="GuN-3X-6Vf" firstAttribute="centerX" secondItem="31s-Lr-j93" secondAttribute="centerX" id="RJp-LJ-NR7"/>
+                                    <constraint firstItem="GuN-3X-6Vf" firstAttribute="centerY" secondItem="31s-Lr-j93" secondAttribute="centerY" id="b7N-Kg-A3O"/>
                                     <constraint firstAttribute="height" constant="72" id="mtb-Yu-YRw"/>
                                 </constraints>
                             </view>
@@ -458,6 +467,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="GuN-3X-6Vf" id="lEd-yc-lwd"/>
                         <outlet property="cancelButton" destination="xDQ-ek-taj" id="wBQ-oZ-zyp"/>
                         <outlet property="map" destination="5iU-pI-epj" id="yzG-A0-jkJ"/>
                         <outlet property="mediaUrlField" destination="fbh-fN-b4Z" id="fEI-X5-DwG"/>

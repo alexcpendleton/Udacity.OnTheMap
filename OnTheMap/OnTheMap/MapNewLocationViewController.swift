@@ -17,6 +17,7 @@ public class MapNewLocationViewController : UIViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var chosenLocation: CLPlacemark!
     var chosenMapString: String!
@@ -43,14 +44,25 @@ public class MapNewLocationViewController : UIViewController {
         navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    func applyWaitingStyles() {
+        activityIndicator.startAnimating()
+        submitButton.enabled = false
+    }
+    
+    func applyWaitingFinishedStyles() {
+        activityIndicator.stopAnimating()
+        submitButton.enabled = true
+    }
+    
     func validateBeforeSubmit() -> Bool {
+        let badUrlMessage = "Please enter a media URL."
         let mediaUrl = mediaUrlField.text!
         if mediaUrl.isEmpty {
-            displayErrorMessage("Please enter a media URL.")
+            displayErrorMessage(badUrlMessage)
             return false
         }
         if !mediaUrl.isProbablyAValidUrl() {
-            displayErrorMessage("Please enter a valid URL.")
+            displayErrorMessage(badUrlMessage)
             return false
         }
         return true
@@ -62,7 +74,7 @@ public class MapNewLocationViewController : UIViewController {
         let isValid = validateBeforeSubmit()
         if isValid {
             let coordinate = getChosenCoordinate()
-            var filled = StudentLocation()
+            let filled = StudentLocation()
             filled.firstName = userInfo.first_name
             filled.lastName = userInfo.last_name
             filled.latitude  = coordinate.latitude
@@ -71,6 +83,7 @@ public class MapNewLocationViewController : UIViewController {
             filled.mapString = chosenMapString
             filled.uniqueKey = userKey
             
+            applyWaitingStyles()
             studentLocationService.create(filled, completionHandler: { (created, error) -> Void in
                 if error != nil {
                     self.displayErrorMessage("Sorry, there was a problem submitting your location.")
@@ -78,7 +91,7 @@ public class MapNewLocationViewController : UIViewController {
                 } else {
                     self.proceed()
                 }
-                
+                self.applyWaitingFinishedStyles()
             })
         }
     }
@@ -88,7 +101,7 @@ public class MapNewLocationViewController : UIViewController {
     }
     
     func displayErrorMessage(message:String) {
-        AppDelegate.alerter.showAlert(message, title: "Whoops", presentUsing: self)
+        AppDelegate.alerter.showAlert(message, title: "", presentUsing: self)
     }
     
     func getChosenCoordinate() -> CLLocationCoordinate2D {
@@ -119,6 +132,9 @@ public class MapNewLocationViewController : UIViewController {
         // can re-enter a location if desired. Cancel
         // will quit out entirely.
         navigationItem.hidesBackButton = false
+        activityIndicator.color = self.view.tintColor
+        submitButton.setTitle("", forState: UIControlState.Disabled)
+        
         if userInfo == nil {
             userInfo = AppDelegate.currentUser!
         }
