@@ -9,6 +9,7 @@
 import Foundation
 
 public class UdacityApiCaller {
+    
     public func makeApiCall(uri:String, bodyContent:AnyObject?,
         method:String, useParseHeaders:Bool = false,
         timeoutIntervalInSeconds:Double = 5.0,
@@ -70,5 +71,37 @@ public class UdacityApiCaller {
             }
         }
         task.resume()
+    }
+    
+    // This call is different enough not to be included in the more 
+    // generic method above.
+    public func makeLogoutCall(completionHandler: (NSError?)->Void) {
+        let completeOnMainQueue:(NSError?)->Void = {
+            let e = $0
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                completionHandler(e)
+            }
+        }
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
+        request.HTTPMethod = "DELETE"
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in sharedCookieStorage.cookies! as [NSHTTPCookie] {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            if error != nil { // Handle error…
+                completeOnMainQueue(error)
+            }
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5)) /* subset response data! */
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            completeOnMainQueue(nil)
+        }
+        task.resume()
+        
     }
 }

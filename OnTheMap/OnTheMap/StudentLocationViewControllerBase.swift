@@ -40,9 +40,11 @@ public class StudentLocationsViewControllerBase : UIViewController {
     
     public func logout() {
         // Smells, too much non-view logic in here
-        AppDelegate.currentUser = nil
-        AppDelegate.currentSession = nil
-        presentLogin()
+        AppDelegate.loginService.logout(AppDelegate.currentSession!) { _ in
+            AppDelegate.currentUser = nil
+            AppDelegate.currentSession = nil
+            self.presentLogin()
+        }
     }
     
     public func presentLogin() {

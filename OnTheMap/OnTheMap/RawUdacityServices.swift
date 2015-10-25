@@ -12,6 +12,10 @@ import Foundation
 public class RawUdacityServices : LoginServiceable, UserInfoServiceable {
     lazy var apiCaller = { UdacityApiCaller() }()
     
+    public func logout(session: LoginSession, completionHandler: (NSError?) -> Void) {
+        apiCaller.makeLogoutCall(completionHandler)
+    }
+    
     public func attemptToLogin(credentials: (username: String, password: String), completionHandler: (LoginResults?, NSError?)->Void) {
         let bodyContent = [
             "udacity": [

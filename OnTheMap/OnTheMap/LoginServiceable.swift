@@ -10,6 +10,7 @@ import Foundation
 
 public protocol LoginServiceable {
     func attemptToLogin(credentials:(username:String, password:String), completionHandler: (LoginResults?, NSError?)->Void)
+    func logout(session: LoginSession, completionHandler: (NSError?)->Void)
 }
 
 public class LoginResults {

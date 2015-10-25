@@ -22,4 +22,8 @@ public class FakeSessionService : LoginServiceable {
             completionHandler(LoginResults(success: false, sessionInfo: nil), nil)
         }
     }
+    
+    public func logout(session: LoginSession, completionHandler: (NSError?)->Void) {
+        completionHandler(nil)
+    }
 }

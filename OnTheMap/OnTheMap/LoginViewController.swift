@@ -56,7 +56,7 @@ public class LoginViewController : UIViewController {
         let credentials = (username:usernameField.text!, password:passwordField.text!)
         applyLoginCallStartingStyles()
         loginService.attemptToLogin(credentials) { (results, error) -> Void in
-            let successful = results != nil && results!.successful
+            let successful = results != nil && results!.successful && error == nil
             if successful {
                 self.onSuccessfulLogin(results!.session!)
             } else {
