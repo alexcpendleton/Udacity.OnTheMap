@@ -14,6 +14,8 @@ public class NewLocationViewController : UIViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem?
     @IBOutlet weak var findEnteredLocationButton: UIButton?
     @IBOutlet weak var enteredLocationField: UITextField?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
+    
     public lazy var locator:Locator = {
         return Locator()
         }()
@@ -28,15 +30,29 @@ public class NewLocationViewController : UIViewController {
         attemptToGeocode(enteredLocationField!.text!)
     }
     
+    var originalTintColor: UIColor!
+    func applyGeocodingStyles() {
+        activityIndicator?.startAnimating()
+        enteredLocationField?.enabled = false
+        findEnteredLocationButton?.enabled = false
+    }
+    
+    func applyGeocodingFinishedStyles() {
+        activityIndicator?.stopAnimating()
+        enteredLocationField?.enabled = true
+        findEnteredLocationButton?.enabled = true
+    }
+    
     func attemptToGeocode(address:String) {
         if address.isEmpty {
             displayErrorMessage("Please enter a location to geocode.")
         } else {
+            applyGeocodingStyles()
             locator.geocode(address) { (placemark, error) -> Void in
                 if error != nil {
                     self.displayGeocodeError(error!)
                 } else {
-                    if placemark?.count == 0 {
+                    if placemark == nil || placemark?.count == 0 {
                         // I don't think this is something that can happen
                         // but it's covered for paranoia's sake
                         self.displayErrorMessage(self.nothingFoundMessage)
@@ -44,6 +60,7 @@ public class NewLocationViewController : UIViewController {
                         self.proceed(placemark!, address: address)
                     }
                 }
+                self.applyGeocodingFinishedStyles()
             }
         }
     }
@@ -53,10 +70,14 @@ public class NewLocationViewController : UIViewController {
     }
     
     func displayGeocodeError(error:NSError) {
-        var message = "There was a problem when trying to geocode that location, sorry!"
+        var message = "Sorry, there was a problem when trying to geocode that location."
         // Handle a few known error cases
+        // "No result" (code 8) also occurs when there's bad network connectivity
         if error.code == CLError.GeocodeFoundNoResult.rawValue {
             message = nothingFoundMessage
+        }
+        if error.isNetworkError() {
+            message = "Sorry, there was an error connecting to the geocoding server."
         }
         displayErrorMessage(message)
         print(error.description)
@@ -83,7 +104,6 @@ public class NewLocationViewController : UIViewController {
         toPresent.chosenMapString = address
 
         navigationController?.pushViewController(toPresent, animated: true)
-        //self.presentViewController(toPresent, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject?) {
@@ -95,8 +115,11 @@ public class NewLocationViewController : UIViewController {
             //enteredLocationField?.text = "1 Infinite Loop, Cupertino, CA"
             enteredLocationField?.text = "Nashua, NH"
         }
+        
         navigationItem.hidesBackButton = true
         navigationController?.navigationBarHidden = false
+        findEnteredLocationButton?.setTitle("", forState: UIControlState.Disabled)
+        activityIndicator?.color = view.tintColor
         
         super.viewWillAppear(animated)
     }

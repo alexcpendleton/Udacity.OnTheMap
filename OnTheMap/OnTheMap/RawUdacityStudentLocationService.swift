@@ -9,12 +9,6 @@
 import Foundation
 
 public class RawUdacityStudentLocationService : StudentLocationsServiceable {
-    /*
-
-func getLatest100()->[StudentLocation]
-func get(limit:Int?, skip:Int?, order:String?)->[StudentLocation]
-func create(location: StudentLocation, completionHandler:(StudentLocation?, NSError?)->Void)
-*/
     let apiCaller = UdacityApiCaller()
     
     public func getLatest100(completionHandler:([StudentLocation]?, NSError?)->Void) {

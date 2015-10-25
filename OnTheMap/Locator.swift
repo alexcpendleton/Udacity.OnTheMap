@@ -10,8 +10,11 @@ import Foundation
 import CoreLocation
 
 public class Locator {
+    public var artificialDelay: Double = 0
     public func geocode(fromEntered:String, completionHandler: CLGeocodeCompletionHandler) {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(fromEntered, completionHandler: completionHandler)
+        artificialDelay.delay {
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(fromEntered, completionHandler: completionHandler)
+        }
     }
 }

@@ -320,12 +320,21 @@
                                     <action selector="findEnteredLocationPressed:" destination="acn-t4-cfy" eventType="touchUpInside" id="eCK-FT-Co0"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="n9x-bz-cL3">
+                                <rect key="frame" x="282" y="524" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="Y01-yY-POi"/>
+                                    <constraint firstAttribute="height" constant="37" id="c5f-4l-bdU"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="8h3-3o-pvG" secondAttribute="trailing" constant="-20" id="2RW-xC-bgR"/>
+                            <constraint firstItem="n9x-bz-cL3" firstAttribute="centerX" secondItem="TiY-TA-lYE" secondAttribute="centerX" id="4bP-JW-ux5"/>
                             <constraint firstItem="8h3-3o-pvG" firstAttribute="leading" secondItem="G7W-d3-E2P" secondAttribute="leadingMargin" constant="-20" id="7ga-aR-0mA"/>
                             <constraint firstItem="YAg-QS-Tmf" firstAttribute="top" secondItem="8h3-3o-pvG" secondAttribute="bottom" constant="8" id="BhL-0L-phO"/>
+                            <constraint firstItem="n9x-bz-cL3" firstAttribute="centerY" secondItem="TiY-TA-lYE" secondAttribute="centerY" id="Idg-ty-gip"/>
                             <constraint firstItem="TiY-TA-lYE" firstAttribute="centerX" secondItem="G7W-d3-E2P" secondAttribute="centerX" id="LAp-iU-shO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YAg-QS-Tmf" secondAttribute="trailing" constant="-20" id="LgQ-oi-oQa"/>
                             <constraint firstItem="TiY-TA-lYE" firstAttribute="top" secondItem="YAg-QS-Tmf" secondAttribute="bottom" constant="25" id="W8k-8s-O7M"/>
@@ -344,6 +353,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="n9x-bz-cL3" id="1XK-aT-c7X"/>
                         <outlet property="cancelButton" destination="ibA-ww-y6f" id="xqV-tP-Z4V"/>
                         <outlet property="enteredLocationField" destination="FyE-hN-U1S" id="kfM-D7-svJ"/>
                         <outlet property="findEnteredLocationButton" destination="TiY-TA-lYE" id="Owk-pt-OHT"/>
