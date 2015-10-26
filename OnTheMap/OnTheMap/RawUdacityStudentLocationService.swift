@@ -19,7 +19,9 @@ public class RawUdacityStudentLocationService : StudentLocationsServiceable {
         var params = [NSURLQueryItem]()
         if limit != nil { params.append(NSURLQueryItem(name: "limit", value: limit?.description)) }
         if skip != nil { params.append(NSURLQueryItem(name: "skip", value: skip?.description)) }
-        if order != nil { params.append(NSURLQueryItem(name: "order", value: order)) }
+        if order != nil {
+            params.append(NSURLQueryItem(name: "order", value: "createdAt"))
+        }
         
         let uri = NSURLComponents(string: "https://api.parse.com/1/classes/StudentLocation")
         uri?.queryItems = params

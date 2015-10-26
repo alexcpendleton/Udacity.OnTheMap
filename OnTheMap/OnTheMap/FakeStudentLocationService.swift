@@ -36,7 +36,7 @@ public class FakeStudentLocationService : StudentLocationsServiceable {
         for index in 1...count {
             let item = StudentLocation()
             item.acl = nil
-            item.createdAt = NSDate()
+            item.createdAt = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: index * -1, toDate: NSDate(), options: NSCalendarOptions(rawValue: 0))
             item.firstName = "Student"
             item.lastName = "Location \(index)"
             let coords = makeCoords()

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return collectiveUdacityServices
     }()
     internal static let studentLocationService:StudentLocationsServiceable = {
-        return FakeStudentLocationService()
+        //return FakeStudentLocationService()
         return RawUdacityStudentLocationService()
     }()
     internal static let userInfoService: UserInfoServiceable = {

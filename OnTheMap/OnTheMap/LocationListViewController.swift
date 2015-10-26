@@ -14,13 +14,11 @@ public class LocationListViewController : StudentLocationsViewControllerBase, UI
     var refreshControl = UIRefreshControl()
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.delegate = self
         tableView.dataSource = self
         //http://stackoverflow.com/a/15010646/21201
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
     }
-    
     
     public override func currentLocationsUpdated() {
         tableView.reloadData()
@@ -46,15 +44,16 @@ public class LocationListViewController : StudentLocationsViewControllerBase, UI
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell") as UITableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell") as! LocationListViewCell!
         let item = currentLocations[indexPath.row]
-        cell.textLabel?.text = item.description
-        cell.imageView?.image = UIImage(named: "pin")
+        cell.load(item)
         return cell
     }
     
-    public func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = currentLocations[indexPath.row]
-        item.mediaURL.openUrl()
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        /* I've intentionally not implemented the auto-opening of a browser to the
+        current mediaURL because I found it disruptive and seemed a bad experience.
+        However, if you press the external link button that will do the job.
+        */
     }
 }

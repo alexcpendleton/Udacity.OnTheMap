@@ -35,6 +35,18 @@ public class StudentLocation : CustomStringConvertible {
         latitude = fromDictionary["latitude"] as! Double
         longitude = fromDictionary["longitude"] as! Double
         // The rubric says to ignore dates and acl, so I did
+        
+        createdAt = parseDate(fromDictionary["createdAt"] as! String)
+    }
+    
+    var dateParser: NSDateFormatter = {
+        var result = NSDateFormatter()
+        result.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.z'Z'"
+        return result
+    }()
+    
+    func parseDate(toParse:String) -> NSDate? {
+        return dateParser.dateFromString(toParse)
     }
     
     func toUdacityPostable()->[String : AnyObject] {
