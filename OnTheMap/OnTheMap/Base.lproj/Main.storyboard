@@ -554,7 +554,7 @@
                                                         <action selector="externalLinkPressed:" destination="LIz-aU-meF" eventType="touchUpInside" id="CGN-kE-iVT"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="titlePlaceholder" text="Title Placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-oZ-bFX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="titlePlaceholder" text="Title Placeholder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-oZ-bFX">
                                                     <rect key="frame" x="52" y="2" width="301" height="22.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22.5" id="5my-9E-7VA"/>
@@ -564,14 +564,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="pinImage" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="Tph-Mj-Z7k">
-                                                    <rect key="frame" x="8" y="4" width="36" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="R2A-if-A5c"/>
-                                                        <constraint firstAttribute="width" constant="36" id="W1t-KN-PLW"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="subtitlePlaceholder" text="Subtitle placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7a-rU-OW2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="subtitlePlaceholder" text="Subtitle placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7a-rU-OW2">
                                                     <rect key="frame" x="52" y="22" width="423" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21.5" id="1SO-je-rXc"/>
@@ -581,23 +574,32 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BsO-ta-IMr">
+                                                    <rect key="frame" x="8" y="6" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="NQ5-EJ-ymC"/>
+                                                        <constraint firstAttribute="width" constant="32" id="Pvc-6f-fwq"/>
+                                                    </constraints>
+                                                    <state key="normal" image="pin"/>
+                                                    <connections>
+                                                        <action selector="pinPressed:" destination="LIz-aU-meF" eventType="touchUpInside" id="DDK-Of-xVq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Z7a-rU-OW2" firstAttribute="leading" secondItem="1R7-oZ-bFX" secondAttribute="leading" id="3pu-YX-i5z"/>
-                                                <constraint firstItem="1R7-oZ-bFX" firstAttribute="leading" secondItem="Tph-Mj-Z7k" secondAttribute="trailing" constant="8" id="9PI-KA-003"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fXY-MI-Wkg" secondAttribute="trailing" id="9bs-ua-udG"/>
-                                                <constraint firstItem="Tph-Mj-Z7k" firstAttribute="top" secondItem="OOc-Rj-hyg" secondAttribute="topMargin" constant="-4" id="DZU-1y-06j"/>
                                                 <constraint firstItem="fXY-MI-Wkg" firstAttribute="centerY" secondItem="OOc-Rj-hyg" secondAttribute="centerY" id="Lnk-0S-odH"/>
                                                 <constraint firstItem="1R7-oZ-bFX" firstAttribute="top" secondItem="OOc-Rj-hyg" secondAttribute="topMargin" constant="-6" id="Ly8-ax-xTs"/>
+                                                <constraint firstItem="BsO-ta-IMr" firstAttribute="centerY" secondItem="OOc-Rj-hyg" secondAttribute="centerY" id="UEl-js-Q39"/>
                                                 <constraint firstItem="Z7a-rU-OW2" firstAttribute="top" secondItem="1R7-oZ-bFX" secondAttribute="bottom" constant="-2.5" id="mIb-rf-rNu"/>
-                                                <constraint firstItem="Tph-Mj-Z7k" firstAttribute="centerY" secondItem="OOc-Rj-hyg" secondAttribute="centerY" id="pa2-1R-SUD"/>
-                                                <constraint firstItem="Tph-Mj-Z7k" firstAttribute="leading" secondItem="OOc-Rj-hyg" secondAttribute="leadingMargin" id="y1x-l7-SQL"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="BsO-ta-IMr" secondAttribute="leading" id="xSR-8S-fbg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="detailLabel" destination="Z7a-rU-OW2" id="hkI-07-IyK"/>
                                             <outlet property="externalLinkButton" destination="fXY-MI-Wkg" id="UkT-u8-XIo"/>
-                                            <outlet property="pinImage" destination="Tph-Mj-Z7k" id="VER-pv-uJZ"/>
+                                            <outlet property="pinButton" destination="BsO-ta-IMr" id="f9h-nW-oh6"/>
                                             <outlet property="titleLabel" destination="1R7-oZ-bFX" id="yDx-PG-JZE"/>
                                         </connections>
                                     </tableViewCell>

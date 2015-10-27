@@ -12,7 +12,7 @@ import UIKit
 public class StudentLocationsViewControllerBase : UIViewController {
     public lazy var locationService: StudentLocationsServiceable = {
         return AppDelegate.studentLocationService
-        }()
+    }()
     public lazy var currentLocations = [StudentLocation]()
     @IBOutlet weak var refreshButton: UIBarButtonItem?
     @IBOutlet weak var newPinButton: UIBarButtonItem?

@@ -21,7 +21,6 @@ public class StudentLocation : CustomStringConvertible {
     var updatedAt: NSDate?
     var acl: NSObject?
     
-    
     public var description: String { get { return firstName + " " + lastName } }
     
     init(){}

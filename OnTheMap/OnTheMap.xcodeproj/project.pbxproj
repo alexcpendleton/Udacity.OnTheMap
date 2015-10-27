@@ -15,6 +15,8 @@
 		4907B83C1BC3615500456DAB /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B83B1BC3615500456DAB /* Random.swift */; };
 		493AD7941BD9B7D6001363A4 /* RawUdacityStudentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493AD7931BD9B7D6001363A4 /* RawUdacityStudentLocationService.swift */; };
 		49609FCB1BDDA8CC001C34FC /* LocationListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49609FCA1BDDA8CC001C34FC /* LocationListViewCell.swift */; };
+		49609FCD1BDF03CA001C34FC /* LocationSelectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49609FCC1BDF03CA001C34FC /* LocationSelectionManager.swift */; };
+		49609FCF1BDF074E001C34FC /* PinPressedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49609FCE1BDF074E001C34FC /* PinPressedDelegate.swift */; };
 		496354C71BD1C78400F41515 /* StudentLocationViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496354C61BD1C78400F41515 /* StudentLocationViewControllerBase.swift */; };
 		496354C91BD1D6D200F41515 /* NewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496354C81BD1D6D200F41515 /* NewLocationViewController.swift */; };
 		496354CB1BD4423700F41515 /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496354CA1BD4423700F41515 /* Locator.swift */; };
@@ -66,6 +68,8 @@
 		4907B83B1BC3615500456DAB /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		493AD7931BD9B7D6001363A4 /* RawUdacityStudentLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawUdacityStudentLocationService.swift; sourceTree = "<group>"; };
 		49609FCA1BDDA8CC001C34FC /* LocationListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewCell.swift; sourceTree = "<group>"; };
+		49609FCC1BDF03CA001C34FC /* LocationSelectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionManager.swift; sourceTree = "<group>"; };
+		49609FCE1BDF074E001C34FC /* PinPressedDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPressedDelegate.swift; sourceTree = "<group>"; };
 		496354C61BD1C78400F41515 /* StudentLocationViewControllerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationViewControllerBase.swift; sourceTree = "<group>"; };
 		496354C81BD1D6D200F41515 /* NewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLocationViewController.swift; sourceTree = "<group>"; };
 		496354CA1BD4423700F41515 /* Locator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Locator.swift; path = ../Locator.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */,
 				49CD26E31BD5F37D006E54DF /* UserInfo.swift */,
 				49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */,
+				49609FCC1BDF03CA001C34FC /* LocationSelectionManager.swift */,
+				49609FCE1BDF074E001C34FC /* PinPressedDelegate.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -356,11 +362,13 @@
 				49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */,
 				497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */,
 				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
+				49609FCF1BDF074E001C34FC /* PinPressedDelegate.swift in Sources */,
 				49B94B4D1BD727C400BED7F5 /* RawUdacityServices.swift in Sources */,
 				496354C91BD1D6D200F41515 /* NewLocationViewController.swift in Sources */,
 				497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */,
 				49CD26E61BD5F392006E54DF /* UserInfoServiceable.swift in Sources */,
 				4907B8361BC34E3900456DAB /* StudentLocationsServiceable.swift in Sources */,
+				49609FCD1BDF03CA001C34FC /* LocationSelectionManager.swift in Sources */,
 				4976A8A51BBCBDFB0053C745 /* LoginServiceable.swift in Sources */,
 				49CD26E41BD5F37D006E54DF /* UserInfo.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,

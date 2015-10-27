@@ -16,9 +16,7 @@ public class NewLocationViewController : UIViewController {
     @IBOutlet weak var enteredLocationField: UITextField?
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
-    public lazy var locator:Locator = {
-        return Locator()
-        }()
+    public lazy var locator:Locator = { return Locator() }()
     
     public var useTestingDefaults = AppDelegate.useTestingDefaults
     
@@ -30,7 +28,6 @@ public class NewLocationViewController : UIViewController {
         attemptToGeocode(enteredLocationField!.text!)
     }
     
-    var originalTintColor: UIColor!
     func applyGeocodingStyles() {
         activityIndicator?.startAnimating()
         enteredLocationField?.enabled = false

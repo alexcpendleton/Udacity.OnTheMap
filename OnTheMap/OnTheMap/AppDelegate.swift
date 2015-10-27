@@ -21,17 +21,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return collectiveUdacityServices
     }()
     internal static let studentLocationService:StudentLocationsServiceable = {
-        //return FakeStudentLocationService()
+        return FakeStudentLocationService()
         return RawUdacityStudentLocationService()
     }()
     internal static let userInfoService: UserInfoServiceable = {
         return FakeUserInfoService()
         return collectiveUdacityServices
     }()
+    
+    internal static let locationSelectionManager: LocationSelectionManager = {
+        return LocationSelectionManager()
+    }()
+    
     internal static var currentSession: LoginSession?
     internal static var currentUser: UserInfo?
     internal static var alerter = SingleButtonAlertMessager()
     internal static var useTestingDefaults = true
+    
+    internal static let selectAnnotationEventName = "SelectAnnotation"
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

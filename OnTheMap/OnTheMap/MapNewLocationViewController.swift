@@ -23,6 +23,7 @@ public class MapNewLocationViewController : UIViewController {
     var chosenLocation: CLPlacemark!
     var chosenMapString: String!
     var userInfo: UserInfo!
+    let locationSelectionManager = { AppDelegate.locationSelectionManager }()
     
     // Makes this injectable but defaults to current session variable value
     internal var userKey = {
@@ -114,6 +115,7 @@ public class MapNewLocationViewController : UIViewController {
                     self.displayErrorMessage("Sorry, there was a problem submitting your location.")
                     print(error)
                 } else {
+                    self.locationSelectionManager.push(created!)
                     self.proceed()
                 }
                 self.applyWaitingFinishedStyles()
@@ -140,10 +142,7 @@ public class MapNewLocationViewController : UIViewController {
     
     func centerToChosenLocation() {
         let coordinate = getChosenCoordinate()
-        let distance = CLLocationDistance(floatLiteral: 5000)
-        let region = MKCoordinateRegionMakeWithDistance(coordinate, distance, distance)
-        map.setCenterCoordinate(coordinate, animated: true)
-        map.setRegion(region, animated: true)
+        map.zoomToCoordinate(coordinate)
     }
     
     func annotateChosenLocation() {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension String {
     func isProbablyAValidUrl() -> Bool {
@@ -60,5 +61,21 @@ extension Double {
                 Int64(self * Double(NSEC_PER_SEC))
             ),
             dispatch_get_main_queue(), closure)
+    }
+}
+
+extension StudentLocation {
+    var coordinate: CLLocationCoordinate2D {
+        get {
+            return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+        }
+    }
+}
+
+extension MKMapView {
+    func zoomToCoordinate(coordinate:CLLocationCoordinate2D, distance: CLLocationDistance = 6000) {
+        let region = MKCoordinateRegionMakeWithDistance(coordinate, distance, distance)
+        self.setCenterCoordinate(coordinate, animated: true)
+        self.setRegion(region, animated: true)
     }
 }

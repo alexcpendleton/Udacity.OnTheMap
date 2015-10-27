@@ -9,15 +9,22 @@
 import Foundation
 import UIKit
 
-public class LocationListViewController : StudentLocationsViewControllerBase, UITableViewDataSource, UITableViewDelegate {
+public class LocationListViewController : StudentLocationsViewControllerBase, UITableViewDataSource, UITableViewDelegate, PinPressedDelegate {
     @IBOutlet weak var tableView: UITableView!
+    let locationSelectionManager = { AppDelegate.locationSelectionManager }()
     var refreshControl = UIRefreshControl()
+    
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.dataSource = self
         //http://stackoverflow.com/a/15010646/21201
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
+    }
+    
+    public func onPinPressed(location: StudentLocation, sender: AnyObject?) {
+        locationSelectionManager.push(location)
+        tabBarController?.selectedIndex = 0
     }
     
     public override func currentLocationsUpdated() {
@@ -47,6 +54,7 @@ public class LocationListViewController : StudentLocationsViewControllerBase, UI
         let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell") as! LocationListViewCell!
         let item = currentLocations[indexPath.row]
         cell.load(item)
+        cell.delegate = self
         return cell
     }
     

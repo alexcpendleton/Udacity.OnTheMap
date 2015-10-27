@@ -13,15 +13,40 @@ import MapKit
 
 public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDelegate {
     @IBOutlet weak var map: MKMapView!
+    let locationSelectionManager = { AppDelegate.locationSelectionManager }()
     
     public override func viewWillAppear(animated: Bool) {
         map?.delegate = self
         super.viewWillAppear(animated)
     }
     
+    public func zoomTo(location: StudentLocation) {
+        map.zoomToCoordinate(location.coordinate)
+    }
+    
+    public func showAnnotation(location: StudentLocation) {
+        let coordinate = location.coordinate
+        let matchedAnnotation = map.annotations.filter {
+            return $0.coordinate.latitude == coordinate.latitude
+                && $0.coordinate.longitude == coordinate.longitude
+        }.first
+        if matchedAnnotation != nil {
+            map.selectAnnotation(matchedAnnotation!, animated: true)
+        }
+    }
+    
     public override func currentLocationsUpdated() {
         removeAnnotations()
         addAnnotations()
+        focusAnnotationForCurrentLocation()
+    }
+    
+    func focusAnnotationForCurrentLocation() {
+        let locationToSelect = locationSelectionManager.pop()
+        if locationToSelect != nil {
+            zoomTo(locationToSelect!)
+            showAnnotation(locationToSelect!)
+        }
     }
 
     func removeAnnotations() {
@@ -34,7 +59,7 @@ public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDe
     
     func makeAnnotation(from:StudentLocation) -> MKPointAnnotation {
         let result = MKPointAnnotation()
-        result.coordinate = CLLocationCoordinate2D(latitude: from.latitude, longitude: from.longitude)
+        result.coordinate = from.coordinate
         result.title = from.firstName + " " + from.lastName
         result.subtitle = from.mediaURL
         return result
