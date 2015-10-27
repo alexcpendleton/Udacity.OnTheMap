@@ -13,6 +13,7 @@ import MapKit
 
 public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDelegate {
     @IBOutlet weak var map: MKMapView!
+    
     let locationSelectionManager = { AppDelegate.locationSelectionManager }()
     
     public override func viewWillAppear(animated: Bool) {

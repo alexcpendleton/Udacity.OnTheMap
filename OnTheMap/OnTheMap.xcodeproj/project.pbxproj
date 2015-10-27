@@ -32,8 +32,11 @@
 		4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A61BBCC1DA0053C745 /* LoginSession.swift */; };
 		4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */; };
 		4976FB0B1BD9B2F0006540A6 /* UdacityApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976FB0A1BD9B2F0006540A6 /* UdacityApiCaller.swift */; };
+		497919701BDF0E9B005A772A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4979196E1BDF0E9B005A772A /* FBSDKCoreKit.framework */; };
+		497919711BDF0E9B005A772A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4979196F1BDF0E9B005A772A /* FBSDKLoginKit.framework */; };
 		497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */; };
 		497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */; };
+		499EDFBE1BDF1D1100340393 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EDFBD1BDF1D1100340393 /* SessionManager.swift */; };
 		49B94B4D1BD727C400BED7F5 /* RawUdacityServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B94B4C1BD727C400BED7F5 /* RawUdacityServices.swift */; };
 		49CD26E21BD5EFFB006E54DF /* FakeUserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */; };
 		49CD26E41BD5F37D006E54DF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E31BD5F37D006E54DF /* UserInfo.swift */; };
@@ -91,8 +94,12 @@
 		4976A8A61BBCC1DA0053C745 /* LoginSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSession.swift; sourceTree = "<group>"; };
 		4976A8A91BBCC3C40053C745 /* FakeSessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSessionService.swift; sourceTree = "<group>"; };
 		4976FB0A1BD9B2F0006540A6 /* UdacityApiCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApiCaller.swift; sourceTree = "<group>"; };
+		4979196E1BDF0E9B005A772A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4979196F1BDF0E9B005A772A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		497919721BDF0FDA005A772A /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		497AABD41BD5C12700546714 /* SingleButtonAlertMessager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleButtonAlertMessager.swift; sourceTree = "<group>"; };
 		497AABD61BD5D11800546714 /* MapNewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNewLocationViewController.swift; sourceTree = "<group>"; };
+		499EDFBD1BDF1D1100340393 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		49B94B4C1BD727C400BED7F5 /* RawUdacityServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawUdacityServices.swift; sourceTree = "<group>"; };
 		49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUserInfoService.swift; sourceTree = "<group>"; };
 		49CD26E31BD5F37D006E54DF /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -107,6 +114,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4907B8341BC34DC900456DAB /* MapKit.framework in Frameworks */,
+				497919701BDF0E9B005A772A /* FBSDKCoreKit.framework in Frameworks */,
+				497919711BDF0E9B005A772A /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +139,8 @@
 		4976A8641BBCB2210053C745 = {
 			isa = PBXGroup;
 			children = (
+				4979196E1BDF0E9B005A772A /* FBSDKCoreKit.framework */,
+				4979196F1BDF0E9B005A772A /* FBSDKLoginKit.framework */,
 				4907B8331BC34DC900456DAB /* MapKit.framework */,
 				4976A86F1BBCB2210053C745 /* OnTheMap */,
 				4976A8871BBCB2210053C745 /* OnTheMapTests */,
@@ -165,6 +176,7 @@
 				496354C61BD1C78400F41515 /* StudentLocationViewControllerBase.swift */,
 				496354C81BD1D6D200F41515 /* NewLocationViewController.swift */,
 				49609FCA1BDDA8CC001C34FC /* LocationListViewCell.swift */,
+				497919721BDF0FDA005A772A /* BridgingHeader.h */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -204,6 +216,7 @@
 				49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */,
 				49609FCC1BDF03CA001C34FC /* LocationSelectionManager.swift */,
 				49609FCE1BDF074E001C34FC /* PinPressedDelegate.swift */,
+				499EDFBD1BDF1D1100340393 /* SessionManager.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -364,6 +377,7 @@
 				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
 				49609FCF1BDF074E001C34FC /* PinPressedDelegate.swift in Sources */,
 				49B94B4D1BD727C400BED7F5 /* RawUdacityServices.swift in Sources */,
+				499EDFBE1BDF1D1100340393 /* SessionManager.swift in Sources */,
 				496354C91BD1D6D200F41515 /* NewLocationViewController.swift in Sources */,
 				497AABD71BD5D11800546714 /* MapNewLocationViewController.swift in Sources */,
 				49CD26E61BD5F392006E54DF /* UserInfoServiceable.swift in Sources */,
@@ -526,10 +540,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexcpendleton.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = OnTheMap/BridgingHeader.h;
 			};
 			name = Debug;
 		};
@@ -537,10 +556,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexcpendleton.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = OnTheMap/BridgingHeader.h;
 			};
 			name = Release;
 		};

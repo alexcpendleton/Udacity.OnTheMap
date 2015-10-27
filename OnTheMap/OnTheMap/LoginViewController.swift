@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 
-public class LoginViewController : UIViewController {
+public class LoginViewController : UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var signUp: AnyObject!
+    @IBOutlet weak var loginWithFacebookContainer: UIView!
+    @IBOutlet weak var loginWithFacebookButton: FBSDKLoginButton!
     
     let loginService = { AppDelegate.loginService }()
     let userInfoService = { AppDelegate.userInfoService }()
@@ -26,10 +28,33 @@ public class LoginViewController : UIViewController {
             usernameField.text = "fakertonmcnotreal@mailinator.com"
             passwordField.text = "nope"
         }
+        
         // Hide the "Login" text on the button as we will show 
         // an activity indicator instead
         loginButton.setTitle("", forState: UIControlState.Disabled)
+        
+        // Use Facebook's own button
+        loginWithFacebookButton.delegate = self
         super.viewWillAppear(animated)
+    }
+    
+    public func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        print("User Logged In")
+        
+        if ((error) != nil)
+        {
+            onFailedLogin(error)
+        }
+        else if result.isCancelled {
+            presentFailureMessage("Facebook login cancelled.")
+        }
+        else {
+            let t = result.token.tokenString
+            attemptLogin(withCredentials: FacebookCredential(token: t))
+        }
+    }
+    
+    public func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
     }
     
     @IBAction func loginOnTouchUpInside() {
@@ -53,7 +78,11 @@ public class LoginViewController : UIViewController {
             presentFailureMessage("Please enter your password.")
             return
         }
-        let credentials = (username:usernameField.text!, password:passwordField.text!)
+        let credentials = UsernamePasswordCredential(username: usernameField.text!, password: passwordField.text!)
+        attemptLogin(withCredentials: credentials)
+    }
+    
+    func attemptLogin(withCredentials credentials:LoginCreditable) {
         applyLoginCallStartingStyles()
         loginService.attemptToLogin(credentials) { (results, error) -> Void in
             let successful = results != nil && results!.successful && error == nil
@@ -64,6 +93,7 @@ public class LoginViewController : UIViewController {
             }
             self.applyLoginCallFinishedStyles()
         }
+        
     }
     
     func applyLoginCallStartingStyles() {

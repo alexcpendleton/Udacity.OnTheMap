@@ -16,13 +16,8 @@ public class RawUdacityServices : LoginServiceable, UserInfoServiceable {
         apiCaller.makeLogoutCall(completionHandler)
     }
     
-    public func attemptToLogin(credentials: (username: String, password: String), completionHandler: (LoginResults?, NSError?)->Void) {
-        let bodyContent = [
-            "udacity": [
-                "username":credentials.username,
-                "password":credentials.password
-            ]
-        ]
+    public func attemptToLogin(credentials: LoginCreditable, completionHandler: (LoginResults?, NSError?)->Void) {
+        let bodyContent = credentials.toPostable()
         apiCaller.makeApiCall("https://www.udacity.com/api/session",
             bodyContent: bodyContent, method: "POST") { (results, error) -> Void in
             if error != nil {
@@ -45,5 +40,4 @@ public class RawUdacityServices : LoginServiceable, UserInfoServiceable {
             completionHandler(info, error)
         }
     }
-
 }
