@@ -18,10 +18,8 @@ public class LoginViewController : UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var loginWithFacebookContainer: UIView!
     @IBOutlet weak var loginWithFacebookButton: FBSDKLoginButton!
     
-    let loginService = { AppDelegate.loginService }()
-    let userInfoService = { AppDelegate.userInfoService }()
-    
     var useTestingDefaults = { AppDelegate.useTestingDefaults }()
+    var sessionManager = { AppDelegate.sessionManager }()
     
     public override func viewWillAppear(animated: Bool) {
         if useTestingDefaults {
@@ -84,10 +82,11 @@ public class LoginViewController : UIViewController, FBSDKLoginButtonDelegate {
     
     func attemptLogin(withCredentials credentials:LoginCreditable) {
         applyLoginCallStartingStyles()
-        loginService.attemptToLogin(credentials) { (results, error) -> Void in
-            let successful = results != nil && results!.successful && error == nil
+        sessionManager.login(credentials) { (sm, error) -> Void in
+            let results = sm?.currentSession
+            let successful = results != nil && error == nil
             if successful {
-                self.onSuccessfulLogin(results!.session!)
+                self.proceed()
             } else {
                 self.onFailedLogin(error!)
             }
@@ -106,27 +105,9 @@ public class LoginViewController : UIViewController, FBSDKLoginButtonDelegate {
         loginActivityIndicator.stopAnimating()
     }
     
-    func onSuccessfulLogin(session: LoginSession) {
-        userInfoService.get(session.account.key, completionHandler: { (info, error) -> Void in
-            if info != nil {
-                AppDelegate.currentUser = info!
-                AppDelegate.currentSession = session
-                self.proceed()
-            } else {
-                self.presentFailure(error!)
-            }
-        })
-    }
-
-    let proceedSegueName = "AfterLoginSegue"
-
     func proceed() {
-        //performSegueWithIdentifier(proceedSegueName, sender: self)
-        //self.performOnMainQueue {
-            let toPresent = self.storyboard?.instantiateViewControllerWithIdentifier("MainTabBarController")
-            self.presentViewController(toPresent!, animated: true, completion: nil)
-        //}
-        
+        let toPresent = self.storyboard?.instantiateViewControllerWithIdentifier("MainTabBarController")
+        self.presentViewController(toPresent!, animated: true, completion: nil)
     }
     
     func onFailedLogin(error: NSError) {

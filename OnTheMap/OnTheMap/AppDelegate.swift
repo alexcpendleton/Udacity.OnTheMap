@@ -13,28 +13,30 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    internal static let collectiveUdacityServices = {
+    private static let collectiveUdacityServices = {
         return RawUdacityServices()
     }()
-    internal static let loginService: LoginServiceable = {
-        return FakeSessionService()
+    private static let loginService: LoginServiceable = {
+        //return FakeSessionService()
         return collectiveUdacityServices
     }()
     internal static let studentLocationService:StudentLocationsServiceable = {
         return FakeStudentLocationService()
         return RawUdacityStudentLocationService()
     }()
-    internal static let userInfoService: UserInfoServiceable = {
-        return FakeUserInfoService()
+    private static let userInfoService: UserInfoServiceable = {
+        //return FakeUserInfoService()
         return collectiveUdacityServices
+    }()
+    
+    internal static let sessionManager: SessionManager = {
+       return SessionManager(login: loginService, users: userInfoService)
     }()
     
     internal static let locationSelectionManager: LocationSelectionManager = {
         return LocationSelectionManager()
     }()
     
-    internal static var currentSession: LoginSession?
-    internal static var currentUser: UserInfo?
     internal static var alerter = SingleButtonAlertMessager()
     internal static var useTestingDefaults = true
     

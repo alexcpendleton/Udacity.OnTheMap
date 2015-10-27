@@ -25,10 +25,7 @@ public class MapNewLocationViewController : UIViewController {
     var userInfo: UserInfo!
     let locationSelectionManager = { AppDelegate.locationSelectionManager }()
     
-    // Makes this injectable but defaults to current session variable value
-    internal var userKey = {
-        return AppDelegate.currentSession!.account.key
-    }()
+    var sessionManager = { AppDelegate.sessionManager }()
     
     internal var studentLocationService = {
         return AppDelegate.studentLocationService
@@ -46,7 +43,7 @@ public class MapNewLocationViewController : UIViewController {
         submitButton.setTitle("", forState: UIControlState.Disabled)
         
         if userInfo == nil {
-            userInfo = AppDelegate.currentUser!
+            userInfo = sessionManager.currentUserData!
         }
         
         if !userInfo.website_url.isEmpty {
@@ -107,7 +104,7 @@ public class MapNewLocationViewController : UIViewController {
             filled.longitude = coordinate.longitude
             filled.mediaURL = mediaUrl
             filled.mapString = chosenMapString
-            filled.uniqueKey = userKey
+            filled.uniqueKey = sessionManager.currentSession!.account.key
             
             applyWaitingStyles()
             studentLocationService.create(filled, completionHandler: { (created, error) -> Void in

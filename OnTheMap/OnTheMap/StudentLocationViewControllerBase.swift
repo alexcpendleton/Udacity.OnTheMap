@@ -13,6 +13,9 @@ public class StudentLocationsViewControllerBase : UIViewController {
     public lazy var locationService: StudentLocationsServiceable = {
         return AppDelegate.studentLocationService
     }()
+    public lazy var sessionManager: SessionManager = {
+        return AppDelegate.sessionManager
+    }()
     public lazy var currentLocations = [StudentLocation]()
     @IBOutlet weak var refreshButton: UIBarButtonItem?
     @IBOutlet weak var newPinButton: UIBarButtonItem?
@@ -39,10 +42,8 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     public func logout() {
-        // Smells, too much non-view logic in here
-        AppDelegate.loginService.logout(AppDelegate.currentSession!) { _ in
-            AppDelegate.currentUser = nil
-            AppDelegate.currentSession = nil
+        sessionManager.logout {_,_ in 
+            // Don't really care if there were errors or not
             self.presentLogin()
         }
     }
