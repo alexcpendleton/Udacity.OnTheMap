@@ -44,16 +44,30 @@ public class SessionManager {
         }
     }
     
+    public func clearSessionState(completionHandler:()->()) {
+        // Clear our own state
+        self.currentSession = nil
+        self.currentUserData = nil
+        // Facebook won't throw any exceptions if it doesn't
+        // have a session to log out, so we can call it safely
+        // regardless of whether we even have a Facebook session
+        FBSDKLoginManager().logOut()
+        completionHandler()
+    }
+    
     public func logout(completionHandler:(AnyObject?, NSError?)->Void) {
-        loginService.logout(currentSession!) {
-            // Clear our own state
-            self.currentSession = nil
-            self.currentUserData = nil
-            // Facebook won't throw any exceptions if it doesn't
-            // have a session to log out, so we can call it safely
-            // regardless of whether we even have a Facebook session
-            FBSDKLoginManager().logOut()
-            completionHandler(nil, $0)
+        let clearAndComplete:(NSError?)->() = {
+            let e = $0
+            self.clearSessionState({ () -> () in
+                completionHandler(self, e)
+            })
+        }
+        if currentSession != nil {
+            loginService.logout(currentSession!) {
+                clearAndComplete($0)
+            }
+        } else {
+            clearAndComplete(nil)
         }
     }
 }

@@ -30,7 +30,7 @@ public class LoginViewController : UIViewController, FBSDKLoginButtonDelegate {
         // Hide the "Login" text on the button as we will show 
         // an activity indicator instead
         loginButton.setTitle("", forState: UIControlState.Disabled)
-        
+
         // Use Facebook's own button
         loginWithFacebookButton.delegate = self
         super.viewWillAppear(animated)
@@ -53,6 +53,8 @@ public class LoginViewController : UIViewController, FBSDKLoginButtonDelegate {
     }
     
     public func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        // We hide this button when logged in, so there's no need to 
+        // implement anything to handle the button press
     }
     
     @IBAction func loginOnTouchUpInside() {
@@ -86,23 +88,42 @@ public class LoginViewController : UIViewController, FBSDKLoginButtonDelegate {
             let results = sm?.currentSession
             let successful = results != nil && error == nil
             if successful {
-                self.proceed()
+                self.applyLoginCallFinishedStyles(true) {
+                    self.proceed()
+                }
             } else {
-                self.onFailedLogin(error!)
+                // Facebook can get us a token but that doesn't mean 
+                // we've actually linked our Udacity account to Facebook
+                // (Or we had at one time and disconnected it)
+                // If that's the case we want to force a Facebook logout
+                self.sessionManager.logout {_,_ in
+                    self.applyLoginCallFinishedStyles(false) {
+                        self.onFailedLogin(error!)
+                    }
+                }
             }
-            self.applyLoginCallFinishedStyles()
         }
         
     }
-    
+    var overlay:LoadingOverlayViewController?
     func applyLoginCallStartingStyles() {
-        loginButton.enabled = false
-        loginActivityIndicator.startAnimating()
+        //loginButton.enabled = false
+        //loginActivityIndicator.startAnimating()
+        self.definesPresentationContext = true
+        overlay = (storyboard?.instantiateViewControllerWithIdentifier("LoadingOverlayViewController") as! LoadingOverlayViewController)
+        overlay!.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+
+        loginWithFacebookButton.hidden = true
+        presentViewController(overlay!, animated: false, completion: nil)
     }
     
-    func applyLoginCallFinishedStyles() {
-        loginButton.enabled = true
-        loginActivityIndicator.stopAnimating()
+    func applyLoginCallFinishedStyles(succeeded:Bool, completion:()->()) {
+        overlay!.dismissViewControllerAnimated(false) {
+            // The facebook button looks weird when logged in
+            // and we don't really want to show it anyway
+            self.loginWithFacebookButton.hidden = succeeded
+            completion()
+        }
     }
     
     func proceed() {

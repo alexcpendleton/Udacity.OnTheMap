@@ -176,6 +176,64 @@
             </objects>
             <point key="canvasLocation" x="2101" y="504"/>
         </scene>
+        <!--Loading Overlay View Controller-->
+        <scene sceneID="bUe-3c-sZC">
+            <objects>
+                <viewController storyboardIdentifier="LoadingOverlayViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8PK-51-nQS" customClass="LoadingOverlayViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LUS-jA-daC"/>
+                        <viewControllerLayoutGuide type="bottom" id="hly-uR-x9Q"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="L3k-sU-isL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbx-bq-tux">
+                                <rect key="frame" x="180" y="267" width="240" height="66"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kZx-25-qiq">
+                                        <rect key="frame" x="102" y="0.0" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="LcJ-LX-MpZ"/>
+                                            <constraint firstAttribute="width" constant="37" id="rzw-4k-mzW"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kut-UB-sJy">
+                                        <rect key="frame" x="0.0" y="45" width="240" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="q4W-Q4-P1T"/>
+                                            <constraint firstAttribute="width" constant="240" id="tTN-RV-vEE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kZx-25-qiq" firstAttribute="top" secondItem="nbx-bq-tux" secondAttribute="top" id="74t-eX-h72"/>
+                                    <constraint firstItem="kut-UB-sJy" firstAttribute="centerX" secondItem="nbx-bq-tux" secondAttribute="centerX" id="7jF-gn-fd4"/>
+                                    <constraint firstItem="kZx-25-qiq" firstAttribute="centerX" secondItem="nbx-bq-tux" secondAttribute="centerX" id="9Ex-d5-VGi"/>
+                                    <constraint firstItem="kut-UB-sJy" firstAttribute="top" secondItem="kZx-25-qiq" secondAttribute="bottom" constant="8" id="Pq0-yA-wTI"/>
+                                    <constraint firstAttribute="width" constant="240" id="ehb-M6-41Q"/>
+                                    <constraint firstAttribute="height" constant="66" id="hHA-ob-DcI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nbx-bq-tux" firstAttribute="centerY" secondItem="L3k-sU-isL" secondAttribute="centerY" id="3OD-xm-exL"/>
+                            <constraint firstItem="nbx-bq-tux" firstAttribute="centerX" secondItem="L3k-sU-isL" secondAttribute="centerX" id="gbH-Ed-Cpr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="kZx-25-qiq" id="YSx-Id-U1H"/>
+                        <outlet property="textLabel" destination="kut-UB-sJy" id="ISz-vX-CQw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0W-Ul-UHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2069" y="1359"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="MLl-cc-yZ5">
             <objects>
@@ -563,7 +621,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LIz-aU-meF" id="OOc-Rj-hyg">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="externalLinkButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXY-MI-Wkg">

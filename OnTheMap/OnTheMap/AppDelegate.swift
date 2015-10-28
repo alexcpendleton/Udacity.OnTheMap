@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return collectiveUdacityServices
     }()
     internal static let studentLocationService:StudentLocationsServiceable = {
-        return FakeStudentLocationService()
+        //return FakeStudentLocationService()
         return RawUdacityStudentLocationService()
     }()
     private static let userInfoService: UserInfoServiceable = {
@@ -38,13 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     internal static var alerter = SingleButtonAlertMessager()
-    internal static var useTestingDefaults = true
-    
-    internal static let selectAnnotationEventName = "SelectAnnotation"
-    
+    internal static var useTestingDefaults = false
+        
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        let result = FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        // Clear any lingering Facebook sessions which may be active
+        // out of sync with the application
+        FBSDKLoginManager().logOut()
+        return result
     }
     
     func application(application: UIApplication,
@@ -79,8 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
+        // Removes any login sessions when the app closes
+        AppDelegate.sessionManager.logout(){_,_ in }
         self.saveContext()
     }
 
