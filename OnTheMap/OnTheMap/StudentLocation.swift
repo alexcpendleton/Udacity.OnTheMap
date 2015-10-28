@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StudentLocation : CustomStringConvertible {
+public struct StudentLocation : CustomStringConvertible {
     var objectId: String = ""
     var uniqueKey: String = ""
     var firstName: String = ""
