@@ -43,6 +43,7 @@
 		49CD26E21BD5EFFB006E54DF /* FakeUserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */; };
 		49CD26E41BD5F37D006E54DF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E31BD5F37D006E54DF /* UserInfo.swift */; };
 		49CD26E61BD5F392006E54DF /* UserInfoServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */; };
+		49E0B5A01BE1BF6B00DB9655 /* InMemoryCachingLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0B59F1BE1BF6B00DB9655 /* InMemoryCachingLocationService.swift */; };
 		49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FF81BC5ECF600F038ED /* Extensions.swift */; };
 		49F25FFB1BCF2C1900F038ED /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		49CD26E11BD5EFFB006E54DF /* FakeUserInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUserInfoService.swift; sourceTree = "<group>"; };
 		49CD26E31BD5F37D006E54DF /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		49CD26E51BD5F392006E54DF /* UserInfoServiceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoServiceable.swift; sourceTree = "<group>"; };
+		49E0B59F1BE1BF6B00DB9655 /* InMemoryCachingLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryCachingLocationService.swift; sourceTree = "<group>"; };
 		49F25FF81BC5ECF600F038ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		49F25FFA1BCF2C1900F038ED /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 				49609FCE1BDF074E001C34FC /* PinPressedDelegate.swift */,
 				499EDFBD1BDF1D1100340393 /* SessionManager.swift */,
 				490B272E1BE1A48A0065A0F5 /* KeyboardManager.swift */,
+				49E0B59F1BE1BF6B00DB9655 /* InMemoryCachingLocationService.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				49CD26E41BD5F37D006E54DF /* UserInfo.swift in Sources */,
 				4976A8791BBCB2210053C745 /* OnTheMap.xcdatamodeld in Sources */,
 				4976A8A71BBCC1DA0053C745 /* LoginSession.swift in Sources */,
+				49E0B5A01BE1BF6B00DB9655 /* InMemoryCachingLocationService.swift in Sources */,
 				49609FCB1BDDA8CC001C34FC /* LocationListViewCell.swift in Sources */,
 				496354C71BD1C78400F41515 /* StudentLocationViewControllerBase.swift in Sources */,
 				4976A8AA1BBCC3C40053C745 /* FakeSessionService.swift in Sources */,

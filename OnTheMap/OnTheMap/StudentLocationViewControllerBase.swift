@@ -11,6 +11,21 @@ import UIKit
 
 public class StudentLocationsViewControllerBase : UIViewController {
     public lazy var locationService: StudentLocationsServiceable = {
+        /* 
+        Note to instructor:
+        The approach I took to having a single array of locations is probably
+        not the one envisioned. It's stored in a single array in the locations 
+        service initialized in AppDelegate. Clearing the cache sets that to null 
+        signaling that the service should go to the server for the next batch it pulls.
+        Hopefully that's acceptable, I believe it accomplishes the same result 
+        while maintaining some abstraction and SOLID principles (and not rewriting much.)
+        
+        The demonstrations I've seen so far about "dependency injection" in iOS 
+        through the course have made me uneasy. Instantiating a ViewController from another
+        and filling in its properties willy-nilly doesn't sit well with me. It's
+        "good enough" for learning or simple programs, but that sort of thing gets
+        unmanageable in apps of any non-trivial size. 
+        */
         return AppDelegate.studentLocationService
     }()
     public lazy var sessionManager: SessionManager = {
@@ -24,8 +39,8 @@ public class StudentLocationsViewControllerBase : UIViewController {
     
     override public func viewWillAppear(animated: Bool) {
         activityIndicator?.color = self.view.tintColor
-        refresh()
         tabBarController?.tabBar.hidden = false
+        updateCurrentLocationsIfPossible()
         super.viewWillAppear(animated)
     }
     
@@ -59,6 +74,9 @@ public class StudentLocationsViewControllerBase : UIViewController {
     }
     
     public func refresh() {
+        // Clear the cache since we're asking explicitly for
+        // fresh data
+        locationService.clearCacheIfApplicable()
         updateCurrentLocationsIfPossible()
     }
     

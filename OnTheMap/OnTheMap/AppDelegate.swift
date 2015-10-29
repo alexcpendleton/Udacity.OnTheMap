@@ -17,15 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return RawUdacityServices()
     }()
     private static let loginService: LoginServiceable = {
-        //return FakeSessionService()
+        return FakeSessionService()
         return collectiveUdacityServices
     }()
     internal static let studentLocationService:StudentLocationsServiceable = {
-        //return FakeStudentLocationService()
-        return RawUdacityStudentLocationService()
+        return InMemoryCachingLocationsService(backingSource:
+        //    FakeStudentLocationService()
+            RawUdacityStudentLocationService()
+        )
     }()
     private static let userInfoService: UserInfoServiceable = {
-        //return FakeUserInfoService()
+        return FakeUserInfoService()
         return collectiveUdacityServices
     }()
     
@@ -38,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     internal static var alerter = SingleButtonAlertMessager()
-    internal static var useTestingDefaults = false
+    internal static var useTestingDefaults = true
         
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

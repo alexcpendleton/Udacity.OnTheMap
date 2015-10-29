@@ -17,6 +17,10 @@ public class FakeStudentLocationService : StudentLocationsServiceable {
         allLocations = self.makeFakeData(10)
     }
     
+    public func clearCacheIfApplicable() {
+        // Not applicable
+    }
+    
     public func getLatest100(completionHandler:([StudentLocation]?, NSError?)->Void) {
         return get(100, skip: nil, order: nil, completionHandler: completionHandler)
     }

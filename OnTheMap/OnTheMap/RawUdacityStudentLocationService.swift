@@ -11,6 +11,10 @@ import Foundation
 public class RawUdacityStudentLocationService : StudentLocationsServiceable {
     let apiCaller = UdacityApiCaller()
     
+    public func clearCacheIfApplicable() {
+        // Not applicable
+    }
+    
     public func getLatest100(completionHandler:([StudentLocation]?, NSError?)->Void) {
         get(100, skip: nil, order: nil, completionHandler: completionHandler)
     }
