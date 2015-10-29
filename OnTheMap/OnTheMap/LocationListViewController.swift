@@ -47,12 +47,15 @@ public class LocationListViewController : StudentLocationsViewControllerBase, UI
     }
     
     public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentLocations.count
+        if AppDelegate.studentLocationService.cached != nil {
+            return AppDelegate.studentLocationService.cached!.count
+        }
+        return 0
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell") as! LocationListViewCell!
-        let item = currentLocations[indexPath.row]
+        let item = AppDelegate.studentLocationService.cached![indexPath.row]
         cell.load(item)
         cell.delegate = self
         return cell

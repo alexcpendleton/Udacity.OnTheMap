@@ -55,7 +55,9 @@ public class MapViewController : StudentLocationsViewControllerBase, MKMapViewDe
         map!.removeAnnotations(map!.annotations.filter { $0 !== map!.userLocation })
     }
     func addAnnotations() {
-        map?.addAnnotations(currentLocations.map({ makeAnnotation($0) }))
+        if (AppDelegate.studentLocationService.cached != nil) {
+            map?.addAnnotations(AppDelegate.studentLocationService.cached!.map({ makeAnnotation($0) }))
+        }
     }
     
     func makeAnnotation(from:StudentLocation) -> MKPointAnnotation {

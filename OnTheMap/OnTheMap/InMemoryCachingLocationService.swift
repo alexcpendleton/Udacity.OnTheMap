@@ -12,7 +12,7 @@ public class InMemoryCachingLocationsService : StudentLocationsServiceable {
     init(backingSource:StudentLocationsServiceable) {
         rawService = backingSource
     }
-    var cached:[StudentLocation]? = nil
+    public var cached:[StudentLocation]? = nil
     var rawService: StudentLocationsServiceable
     
     public func clearCacheIfApplicable() {
