@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-public class MapNewLocationViewController : UIViewController {
+public class MapNewLocationViewController : UIViewController, KeyboardManagerDelegate {
     let useTestingDefaults = AppDelegate.useTestingDefaults
     
     @IBOutlet weak var mediaUrlField: UITextField!
@@ -23,6 +23,7 @@ public class MapNewLocationViewController : UIViewController {
     var chosenLocation: CLPlacemark!
     var chosenMapString: String!
     var userInfo: UserInfo!
+    var keyboardManager:KeyboardManager!
     let locationSelectionManager = { AppDelegate.locationSelectionManager }()
     
     var sessionManager = { AppDelegate.sessionManager }()
@@ -53,6 +54,21 @@ public class MapNewLocationViewController : UIViewController {
         displayLocation()
         
         super.viewWillAppear(animated)
+    }
+    
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        keyboardManager = KeyboardManager(inViewController: self, delegate: self)
+        keyboardManager.register()
+    }
+    
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    public override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        keyboardManager.unregister()
     }
     
     @IBAction func submitPressed(sender:UIButton?) {
@@ -154,5 +170,14 @@ public class MapNewLocationViewController : UIViewController {
     
     func preview(uri:String) {
         uri.openUrl()
+    }
+    
+    public func keyboardWillHide(keyboardHeight: CGFloat) {
+        // Move the submit button up above the keyboard
+        submitButton.frame.origin.y += keyboardHeight
+    }
+    
+    public func keyboardWillShow(keyboardHeight: CGFloat) {
+        submitButton.frame.origin.y -= keyboardHeight
     }
 }

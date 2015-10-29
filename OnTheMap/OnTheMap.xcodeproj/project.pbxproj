@@ -13,6 +13,7 @@
 		4907B8381BC3524700456DAB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8371BC3524700456DAB /* StudentLocation.swift */; };
 		4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */; };
 		4907B83C1BC3615500456DAB /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907B83B1BC3615500456DAB /* Random.swift */; };
+		490B272F1BE1A48A0065A0F5 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B272E1BE1A48A0065A0F5 /* KeyboardManager.swift */; };
 		493AD7941BD9B7D6001363A4 /* RawUdacityStudentLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493AD7931BD9B7D6001363A4 /* RawUdacityStudentLocationService.swift */; };
 		49609FCB1BDDA8CC001C34FC /* LocationListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49609FCA1BDDA8CC001C34FC /* LocationListViewCell.swift */; };
 		49609FCD1BDF03CA001C34FC /* LocationSelectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49609FCC1BDF03CA001C34FC /* LocationSelectionManager.swift */; };
@@ -70,6 +71,7 @@
 		4907B8371BC3524700456DAB /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		4907B8391BC3538E00456DAB /* FakeStudentLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeStudentLocationService.swift; sourceTree = "<group>"; };
 		4907B83B1BC3615500456DAB /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		490B272E1BE1A48A0065A0F5 /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		493AD7931BD9B7D6001363A4 /* RawUdacityStudentLocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawUdacityStudentLocationService.swift; sourceTree = "<group>"; };
 		49609FCA1BDDA8CC001C34FC /* LocationListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewCell.swift; sourceTree = "<group>"; };
 		49609FCC1BDF03CA001C34FC /* LocationSelectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionManager.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				49609FCC1BDF03CA001C34FC /* LocationSelectionManager.swift */,
 				49609FCE1BDF074E001C34FC /* PinPressedDelegate.swift */,
 				499EDFBD1BDF1D1100340393 /* SessionManager.swift */,
+				490B272E1BE1A48A0065A0F5 /* KeyboardManager.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			files = (
 				4976A8A21BBCBABB0053C745 /* LoginViewController.swift in Sources */,
 				49F25FF91BC5ECF600F038ED /* Extensions.swift in Sources */,
+				490B272F1BE1A48A0065A0F5 /* KeyboardManager.swift in Sources */,
 				497AABD51BD5C12700546714 /* SingleButtonAlertMessager.swift in Sources */,
 				4907B83A1BC3538E00456DAB /* FakeStudentLocationService.swift in Sources */,
 				49609FCF1BDF074E001C34FC /* PinPressedDelegate.swift in Sources */,

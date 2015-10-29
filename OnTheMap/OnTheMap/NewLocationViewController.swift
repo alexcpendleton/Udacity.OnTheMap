@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 
-public class NewLocationViewController : UIViewController {
+public class NewLocationViewController : UIViewController, KeyboardManagerDelegate {
     @IBOutlet weak var cancelButton: UIBarButtonItem?
     @IBOutlet weak var findEnteredLocationButton: UIButton?
     @IBOutlet weak var enteredLocationField: UITextField?
@@ -19,6 +19,7 @@ public class NewLocationViewController : UIViewController {
     public lazy var locator:Locator = { return Locator() }()
     
     public var useTestingDefaults = AppDelegate.useTestingDefaults
+    var keyboardManager:KeyboardManager!
     
     // I feel like these strings should be in some sort of localizable thing
     // Does the course cover that?
@@ -119,5 +120,25 @@ public class NewLocationViewController : UIViewController {
         activityIndicator?.color = view.tintColor
         
         super.viewWillAppear(animated)
+    }
+    
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        keyboardManager = KeyboardManager(inViewController: self, delegate: self)
+        keyboardManager.register()
+    }
+    
+    public override func viewWillDisappear(animated: Bool) {
+        keyboardManager.unregister()
+        super.viewWillDisappear(animated)
+    }
+    
+    public func keyboardWillHide(keyboardHeight: CGFloat) {
+        // Move the submit button up above the keyboard
+        view.frame.origin.y += keyboardHeight
+    }
+    
+    public func keyboardWillShow(keyboardHeight: CGFloat) {
+        view.frame.origin.y -= keyboardHeight
     }
 }
